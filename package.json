@@ -1,56 +1,7 @@
 {
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "packages/**/src/*.js",
-      "packages/zmarkdown/plugins/*.js",
-      "packages/zmarkdown/postprocessors/*.js",
-      "packages/zmarkdown/renderers/*.js",
-      "packages/zmarkdown/server/utils/*.js",
-      "packages/zmarkdown/utils/*.js",
-      "packages/zmarkdown/*.js",
-      "!**/*.config.js"
-    ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/polyfill": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "axios": "^0.21.1",
-    "babel-jest": "^26.3.0",
-    "babel-loader": "^8.1.0",
-    "clone": "^2.1.2",
-    "core-js": "^3.6.5",
-    "coveralls": "^3.1.0",
-    "cross-env": "^7.0.2",
-    "dedent": "^0.7.0",
-    "del-cli": "^3.0.1",
-    "eslint": "^7.9.0",
-    "express": "^4.17.1",
-    "html-differ": "^1.4.0",
-    "jest": "^26.4.2",
-    "jest-environment-node-debug": "^2.0.0",
-    "lerna": "^3.22.1",
-    "mdast-util-to-hast": "^9.1.2",
-    "parallel-webpack": "^2.6.0",
-    "rehype-stringify": "^8.0.0",
-    "remark": "^12.0.1",
-    "remark-footnotes": "^2.0.0",
-    "remark-math": "^3.0.1",
-    "remark-parse": "^8.0.3",
-    "remark-rehype": "^7.0.0",
-    "remark-stringify": "^8.1.1",
-    "sync-request": "^6.1.0",
-    "textr": "^0.3.0",
-    "unified": "^9.2.0",
-    "unist-util-visit": "^2.0.3",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
-  },
+  "name": "zmarkdown-meta",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "pretest": "npm run lint && lerna run pretest --scope zmarkdown",
     "bootstrap": "lerna bootstrap",
@@ -58,26 +9,22 @@
     "lint": "eslint .",
     "posttest": "lerna run posttest --scope zmarkdown",
     "build": "lerna run build",
-    "d": "node --inspect --debug-brk ./node_modules/.bin/jest --runInBand -i",
-    "clean": "lerna clean --yes && del-cli node_modules && npm run bootstrap && lerna run prepare && npm run test",
     "build-demo": "lerna run release --scope zmarkdown && del-cli ./packages/zmarkdown/public/js && cp -r ./packages/zmarkdown/client/dist ./packages/zmarkdown/public/js"
   },
   "engines": {
-    "node": ">=10",
-    "npm": ">=6"
+    "node": ">=12",
+    "npm": ">=7"
   },
-  "private": true,
-  "name": "zmarkdown-meta",
   "dependencies": {
-    "deepmerge": "^4.2.2",
-    "hast-util-sanitize": "^3.0.0",
     "mdast-util-split-by-heading": "file:packages/mdast-util-split-by-heading",
+    "microbber": "file:packages/microbber",
+    "micromark": "^2.0.0",
+    "micromark-extension-kbd": "file:packages/micromark-extension-kbd",
     "rebber": "file:packages/rebber",
     "rebber-plugins": "file:packages/rebber-plugins",
     "rehype-footnotes-title": "file:packages/rehype-footnotes-title",
     "rehype-html-blocks": "file:packages/rehype-html-blocks",
     "rehype-postfix-footnote-anchors": "file:packages/rehype-postfix-footnote-anchors",
-    "rehype-sanitize": "^4.0.0",
     "remark-abbr": "file:packages/remark-abbr",
     "remark-align": "file:packages/remark-align",
     "remark-captions": "file:packages/remark-captions",
@@ -105,5 +52,34 @@
     "typographic-question-mark": "file:packages/typographic-question-mark",
     "typographic-semicolon": "file:packages/typographic-semicolon",
     "zmarkdown": "file:packages/zmarkdown"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@babel/preset-env": "^7.13.15",
+    "eslint": "^7.22.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "jest": "^26.6.3",
+    "lerna": "^4.0.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "packages/**/src/*.js",
+      "packages/zmarkdown/plugins/*.js",
+      "packages/zmarkdown/postprocessors/*.js",
+      "packages/zmarkdown/renderers/*.js",
+      "packages/zmarkdown/server/utils/*.js",
+      "packages/zmarkdown/utils/*.js",
+      "packages/zmarkdown/*.js",
+      "!**/*.config.js"
+    ]
   }
 }

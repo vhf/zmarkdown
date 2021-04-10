@@ -7,7 +7,7 @@
   "contributors": [],
   "scripts": {
     "pretest": "eslint .",
-    "build": "del-cli dist && cross-env BABEL_ENV=production babel src --out-dir dist",
+    "build": "babel --root-mode upward --delete-dir-on-start --env-name production --out-dir dist src",
     "test": "jest",
     "coverage": "jest --coverage"
   },
