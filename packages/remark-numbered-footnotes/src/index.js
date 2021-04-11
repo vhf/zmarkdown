@@ -20,12 +20,12 @@ function convert (node, index, parent) {
     identifier: id,
     children: [{
       type: 'paragraph',
-      children: node.children,
-    }],
+      children: node.children
+    }]
   }
   const footnoteReference = {
     type: 'footnoteReference',
-    identifier: id,
+    identifier: id
   }
   parent.children.splice(index, 1, footnoteReference, footnoteDefinition)
 }
@@ -34,7 +34,7 @@ function createIds (footnotes) {
   return (node, index, parent) => {
     const identifier = node.identifier
 
-    if (!footnotes.hasOwnProperty(identifier)) {
+    if (!Object.prototype.hasOwnProperty.call(footnotes, identifier)) {
       footnotes[identifier] = Object.keys(footnotes).length + 1
     }
     node.identifier = String(footnotes[identifier])
@@ -46,7 +46,7 @@ function replaceIds (footnotes) {
   return (node, index, parent) => {
     const identifier = node.identifier
 
-    if (!footnotes.hasOwnProperty(identifier)) {
+    if (!Object.prototype.hasOwnProperty.call(footnotes, identifier)) {
       footnotes[identifier] = Object.keys(footnotes).length + 1
     }
     node.identifier = String(footnotes[identifier])
@@ -55,7 +55,7 @@ function replaceIds (footnotes) {
 }
 
 function autoId (node) {
-  const {line, column, offset} = node
+  const { line, column, offset } = node
   return `l${line}c${column}o${offset}`
 }
 

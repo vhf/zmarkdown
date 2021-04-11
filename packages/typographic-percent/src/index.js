@@ -1,6 +1,6 @@
 const db = require('./db')
 
-module.exports = (input = '', {locale} = {}) => {
+module.exports = (input = '', { locale } = {}) => {
   if (!Object.keys(db).includes(locale)) return input
 
   const beforeSemiColon = db[locale]

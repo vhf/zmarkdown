@@ -2,21 +2,21 @@ import visit from 'unist-util-visit'
 
 module.exports = splitAtDepth
 
-function splitAtDepth (tree, {splitDepth = 1}) {
+function splitAtDepth (tree, { splitDepth = 1 }) {
   const splitter = new Splitter(splitDepth)
 
   visit(tree, null, (node, index, parent) => splitter.visit(node, index, parent))
 
   return {
     introduction: splitter.introduction,
-    trees: splitter.subTrees,
+    trees: splitter.subTrees
   }
 }
 
 function newRootTree (children = []) {
   return {
     type: 'root',
-    children,
+    children
   }
 }
 
@@ -38,12 +38,11 @@ class Splitter {
       this.lastIndex = index
       const subtree = {
         title: newRootTree(node),
-        children: newRootTree(),
+        children: newRootTree()
       }
       this.subTrees.push(subtree)
     } else if (parent.type === 'root' && this.lastIndex === -1) {
       this.introduction.children.push(node)
-      return
     } else if (parent.type === 'root') {
       this.subTrees[this.subTrees.length - 1].children.children.push(node)
     }

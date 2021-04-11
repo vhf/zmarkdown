@@ -6,12 +6,12 @@ const router = express.Router()
 
 router.get(
   '/config/:plugin',
-  munin('config'),
+  munin('config')
 )
 
 router.get(
   '/:plugin',
-  munin(),
+  munin()
 )
 
 module.exports = router

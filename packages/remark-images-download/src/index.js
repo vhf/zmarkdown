@@ -2,14 +2,13 @@ const FileType = require('file-type')
 const fs = require('fs')
 const isSvg = require('is-svg')
 const path = require('path')
-const {promisify} = require('util')
+const { promisify } = require('util')
 const http = require('http')
 const https = require('https')
 const shortid = require('shortid')
-const URL = require('url')
 const visit = require('unist-util-visit')
 const rimraf = require('rimraf')
-const {Transform} = require('stream')
+const { Transform } = require('stream')
 
 const isImage = (headers) => {
   return (headers['content-type'].substring(0, 6) === 'image/')
@@ -37,7 +36,7 @@ const checkFileType = async (name, data) => {
 
   return FileType.fromBuffer(data)
     .catch(() => {})
-    .then((type = {mime: ''}) => {
+    .then((type = { mime: '' }) => {
       if (!type.mime || type.mime === 'application/xml') {
         if (!isSvg(data.toString())) {
           return Promise.reject(new Error(`Could not detect ${name} mime type, not SVG either`))
@@ -84,9 +83,8 @@ const makeValidatorStream = (fileName, maxSize) => {
           })
       } else {
         cb(null, chunk)
-        return
       }
-    },
+    }
   })
 }
 
@@ -109,27 +107,27 @@ function plugin ({
   defaultOn = {
     statusCode: false,
     mimeType: false,
-    fileTooBig: false,
+    fileTooBig: false
   },
   localUrlToLocalPath,
-  httpRequestTimeout = 5000, // in milliseconds
+  httpRequestTimeout = 5000 // in milliseconds
 } = {}) {
   // Sends an HTTP request, checks headers and resolves a readable stream
   // if headers are valid.
   // Rejects with an error if headers are invalid.
   const initDownload = url =>
     new Promise((resolve, reject) => {
-      const parsedUrl = URL.parse(url)
+      const parsedUrl = new URL(url)
       const proto = parsedUrl.protocol === 'https:' ? https : http
 
       const options = Object.assign(
         {},
         parsedUrl,
-        {timeout: httpRequestTimeout},
+        { timeout: httpRequestTimeout }
       )
 
       const req = proto.get(options, res => {
-        const {headers, statusCode} = res
+        const { headers, statusCode } = res
         let error
 
         const fileSize = getSize(headers)
@@ -143,7 +141,7 @@ function plugin ({
         } else if (maxFileSize && fileSize > maxFileSize) {
           error = new Error(
             `File at ${url} weighs ${headers['content-length']}, ` +
-            `max size is ${maxFileSize}`,
+            `max size is ${maxFileSize}`
           )
           error.replaceWithDefault = defaultOn && defaultOn.fileTooBig
         }
@@ -166,7 +164,6 @@ function plugin ({
       req.on('error', err => reject(err))
     })
 
-
   const downloadAndSave = (node, sourceUrl, httpResponse, destinationPath) =>
     new Promise((resolve, reject) =>
       httpResponse
@@ -186,15 +183,15 @@ function plugin ({
         })
         .on('close', e => {
           resolve()
-        }),
+        })
     )
 
   const doDownloadTasks = async tasks => {
     await Promise.all(tasks.map(task =>
       initDownload(task.url).then(
         res => { task.res = res },
-        error => { task.error = error },
-      ),
+        error => { task.error = error }
+      )
     ))
 
     if (dirSizeLimit) {
@@ -220,6 +217,8 @@ function plugin ({
       if (!task.error) {
         return downloadAndSave(task.node, task.url, task.res, task.destination)
           .catch(error => { task.error = error })
+      } else {
+        return null
       }
     }))
   }
@@ -228,7 +227,7 @@ function plugin ({
     Promise.all(tasks.map(task => {
       if (task.localSourcePath.includes('../')) {
         task.error = new Error(`Dangerous absolute image URL detected: ${task.localSourcePath}`)
-        return
+        return null
       }
 
       return checkAndCopy(task.localSourcePath, task.destination)
@@ -249,17 +248,17 @@ function plugin ({
     let localCopyTasks = []
 
     visit(tree, 'image', async node => {
-      const {url, position} = node
+      const { url, position } = node
 
       // Empty URL make nasty error messages, so ignore them
       if (!url) {
-        vfile.message(`URL is empty`, position)
+        vfile.message('URL is empty', position)
         return
       }
 
       let parsedURI
       try {
-        parsedURI = URL.parse(url)
+        parsedURI = new URL(url)
       } catch (error) {
         vfile.message(`Invalid URL: ${url}`, position, url)
         return
@@ -280,7 +279,7 @@ function plugin ({
           return
         }
 
-        localCopyTasks.push({node, url, destination, localSourcePath: localPath})
+        localCopyTasks.push({ node, url, destination, localSourcePath: localPath })
 
         return
       }
@@ -290,7 +289,7 @@ function plugin ({
         return
       }
 
-      downloadTasks.push({node, url, destination})
+      downloadTasks.push({ node, url, destination })
     })
 
     // Group by URL in order to download each file only once
@@ -306,8 +305,8 @@ function plugin ({
           Object.assign(
             {},
             taskGroup[0],
-            {nodes: taskGroup.map(t => t.node)},
-          ),
+            { nodes: taskGroup.map(t => t.node) }
+          )
         )
     }
 
@@ -326,7 +325,7 @@ function plugin ({
     try {
       await Promise.all([
         doDownloadTasks(downloadTasks),
-        doLocalCopyTasks(localCopyTasks),
+        doLocalCopyTasks(localCopyTasks)
       ])
 
       const failedTasks = tasks.filter(t => t.error)

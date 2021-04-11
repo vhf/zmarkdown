@@ -1,6 +1,6 @@
-const defaultMdastConfig  = require('../../config/mdast')
-const configFactory       = require('./config-factory')
-const zmd                 = require('../../common')
+const defaultMdastConfig = require('../../config/mdast')
+const configFactory = require('./config-factory')
+const zmd = require('../../common')
 
 // ZMd parser memoization
 const processors = {}
@@ -43,12 +43,12 @@ module.exports = (processor, opts = {}, bypassHeadingShift = false) => {
 
   const procId = processor + JSON.stringify(opts)
 
-  if (!processors.hasOwnProperty(procId)) {
+  if (!Object.prototype.hasOwnProperty.call(processors, procId)) {
     // Merge new config with defaults
     const mdastConfig = Object.assign(
       {},
       defaultMdastConfig,
-      configFactory(opts),
+      configFactory(opts)
     )
 
     processors[procId] = zmd(processor, mdastConfig)

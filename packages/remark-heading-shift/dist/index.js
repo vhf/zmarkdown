@@ -1,10 +1,9 @@
 "use strict";
 
-var visit = require('unist-util-visit');
+const visit = require('unist-util-visit');
 
-function shifter() {
-  var shift = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-  return function (tree) {
+function shifter(shift = 1) {
+  return tree => {
     visit(tree, 'heading', function (node) {
       if (!shift) return;
 

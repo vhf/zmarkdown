@@ -16,7 +16,7 @@ const executeOnExtracts = (children, execFunction, depth = 0) => {
   function changeIfReturn (obj, extractType, d) {
     const r = execFunction(obj[extractType], {
       extract_type: extractType,
-      depth:        d,
+      depth: d
     })
     if (typeof r === 'string') obj[extractType] = r
   }
@@ -45,16 +45,16 @@ const executeOnExtracts = (children, execFunction, depth = 0) => {
 // List of rules to assemble VFile `data` section
 const metadataPropertiesRules = {
   disableToc: (a, b) => a && b,
-  languages:  listConcatUnique,
-  stats:      (a, b) => ({signs: a.signs + b.signs, words: a.words + b.words}),
-  ping:       listConcatUnique,
+  languages: listConcatUnique,
+  stats: (a, b) => ({ signs: a.signs + b.signs, words: a.words + b.words }),
+  ping: listConcatUnique
 }
 
 manifestUtils.gatherExtracts = manifest => {
   const rawExtracts = []
 
   const appendToExtracts = (text, options = {}) => {
-    rawExtracts.push({text, options})
+    rawExtracts.push({ text, options })
   }
 
   // Start recursion by top-level element
@@ -67,7 +67,7 @@ manifestUtils.assemble = (beginVfile, endVfile) => {
   const assembledVfile = {
     contents: `${beginVfile.contents}\n${endVfile.contents}`,
     messages: [],
-    data:     {},
+    data: {}
   }
 
   if (beginVfile.messages) {

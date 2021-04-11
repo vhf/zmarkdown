@@ -92,9 +92,9 @@ class GridTableStringifier {
             type: 'paragraph',
             children: [{
               type: 'text',
-              value: ' ',
-            }],
-          }],
+              value: ' '
+            }]
+          }]
         })
       }
       this.colIndex = 0

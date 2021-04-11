@@ -6,7 +6,7 @@ LaTeX requires special handlings of footnotes placed in headings such as \sectio
 We therefore mark each footnote placed in heading for later handling.
 */
 
-var nodeTypes = ['footnote', 'footnoteDefinition'];
+const nodeTypes = ['footnote', 'footnoteDefinition'];
 
 function plugin() {
   return function headingVisitor(node, index, parent) {
@@ -15,9 +15,7 @@ function plugin() {
     }
 
     if (node.children) {
-      node.children.forEach(function (n, i) {
-        return headingVisitor(n, i, node);
-      });
+      node.children.forEach((n, i) => headingVisitor(n, i, node));
     }
   };
 }

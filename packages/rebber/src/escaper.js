@@ -10,15 +10,15 @@ encode.escape = escape
 /* List of enforced escapes. */
 const defaultEscapes = {
   '#': '\\#',
-  '$': '\\$',
+  $: '\\$',
   '%': '\\%',
   '&': '\\&',
   '\\': '\\textbackslash{}',
   '^': '\\textasciicircum{}',
-  '_': '\\_',
+  _: '\\_',
   '{': '\\{',
   '}': '\\}',
-  '~': '\\textasciitilde{}',
+  '~': '\\textasciitilde{}'
 }
 
 /* Encode special characters in `value`. */

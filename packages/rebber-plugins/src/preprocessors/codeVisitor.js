@@ -10,7 +10,7 @@ module.exports = (ctx, tree) => {
     if (!appendix || appendix.type !== 'appendix') {
       appendix = {
         type: 'appendix',
-        children: [],
+        children: []
       }
       tree.children.push(appendix)
     }
@@ -26,12 +26,12 @@ module.exports = (ctx, tree) => {
                 type: 'definition',
                 identifier: `appendix-${appendixIndex}`,
                 url: `${ctx.codeAppendiceTitle || 'Appendix'} ${appendixIndex}`,
-                referenceType: 'full',
-              },
+                referenceType: 'full'
+              }
             ],
-            depth: 1,
-          },
-        ],
+            depth: 1
+          }
+        ]
       })
 
       appendix.children.push(innerNode)
@@ -44,13 +44,12 @@ module.exports = (ctx, tree) => {
         children: [
           {
             type: 'text',
-            value: generator(appendixIndex),
-          },
-        ],
+            value: generator(appendixIndex)
+          }
+        ]
       }
       _parent.children.splice(index, 1, referenceNode)
       appendixIndex++
     })
-
   }
 }

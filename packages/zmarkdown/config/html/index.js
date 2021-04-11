@@ -4,22 +4,22 @@ let currentFootnotePostfix = shortid.generate()
 
 module.exports = {
   autolinkHeadings: {
-    behaviour: 'append',
+    behaviour: 'append'
   },
 
   bridge: {
     allowDangerousHtml: true,
-    handlers:           {
-      code: require('../../utils/code-handler'),
-    },
+    handlers: {
+      code: require('../../utils/code-handler')
+    }
   },
 
   footnotesTitles: 'Retourner au texte de la note $id',
 
   highlight: {
     ignoreMissing: true,
-    plainText:     ['console'],
-    aliases:       {tex: ['latex']},
+    plainText: ['console'],
+    aliases: { tex: ['latex'] }
   },
 
   sanitize: require('../sanitize'),
@@ -31,8 +31,8 @@ module.exports = {
   },
 
   postProcessors: {
-    iframeWrappers:   require('./iframe-wrappers'),
+    iframeWrappers: require('./iframe-wrappers'),
     footnotesReorder: true,
-    wrapCode:         true,
-  },
+    wrapCode: true
+  }
 }

@@ -9,7 +9,7 @@ function plugin (options) {
   }
 
   function inlineTokenizer (eat, value, silent) {
-    const regex = new RegExp(/[*]\[([^\]]*)\]:\s*(.+)\n*/)
+    const regex = /[*]\[([^\]]*)\]:\s*(.+)\n*/
     const keep = regex.exec(value)
 
     /* istanbul ignore if - never used (yet) */
@@ -23,14 +23,14 @@ function plugin (options) {
       abbr: abbr,
       reference: reference,
       children: [
-        {type: 'text', value: abbr},
+        { type: 'text', value: abbr }
       ],
       data: {
         hName: 'abbr',
         hProperties: {
-          title: reference,
-        },
-      },
+          title: reference
+        }
+      }
     })
   }
 
@@ -96,12 +96,12 @@ function plugin (options) {
         // Replace abbreviations
         for (let i = 0; i < newTexts.length; i++) {
           const content = newTexts[i]
-          if (abbrs.hasOwnProperty(content)) {
+          if (Object.prototype.hasOwnProperty.call(abbrs, content)) {
             const abbr = abbrs[content]
             if (expandFirst && !expanded[content]) {
               node.children.splice(c + i, 0, {
                 type: 'text',
-                value: `${abbr.reference} (${abbr.abbr})`,
+                value: `${abbr.reference} (${abbr.abbr})`
               })
               expanded[content] = true
             } else {
@@ -110,7 +110,7 @@ function plugin (options) {
           } else {
             node.children.splice(c + i, 0, {
               type: 'text',
-              value: content,
+              value: content
             })
           }
         }

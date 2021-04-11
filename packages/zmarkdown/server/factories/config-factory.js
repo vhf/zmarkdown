@@ -63,15 +63,15 @@ module.exports = opts => {
       'setextHeading',
       'footnote',
       'table',
-      'custom_blocks',
+      'custom_blocks'
     ])
   }
 
   if (typeof opts.extract_type === 'string') {
     if (['introduction', 'conclusion'].includes(opts.extract_type)) {
       mdastConfig.postProcessors.wrapIntroCcl = {
-        type:  opts.extract_type,
-        level: opts.ic_shift || 0,
+        type: opts.extract_type,
+        level: opts.ic_shift || 0
       }
     }
   }

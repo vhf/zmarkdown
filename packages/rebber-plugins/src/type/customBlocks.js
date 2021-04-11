@@ -9,7 +9,7 @@ const defaultMacros = {
     return `\\begin{${environmentName}}${blockTitle ? `[{{${blockTitle}}}]` : ''}` +
       `\n${blockContent}` +
       `\n\\end{${environmentName}}\n`
-  },
+  }
 }
 
 function customBlock (ctx, node) {

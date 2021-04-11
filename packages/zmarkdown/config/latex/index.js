@@ -5,46 +5,46 @@ const appendix = require('rebber-plugins/dist/preprocessors/codeVisitor')
 
 const rebberConfig = {
   preprocessors: {
-    tableCell:          appendix,
+    tableCell: appendix,
     footnoteDefinition: [appendix],
-    spoilerFlatten:     require('rebber-plugins/dist/preprocessors/spoilerFlatten')([
+    spoilerFlatten: require('rebber-plugins/dist/preprocessors/spoilerFlatten')([
       'sCustomBlock',
-      'secretCustomBlock',
+      'secretCustomBlock'
     ]),
 
-    heading:          require('rebber-plugins/dist/preprocessors/headingVisitor'),
-    quizzCustomBlock: require('rebber-plugins/dist/preprocessors/prepareQuizz'),
+    heading: require('rebber-plugins/dist/preprocessors/headingVisitor'),
+    quizzCustomBlock: require('rebber-plugins/dist/preprocessors/prepareQuizz')
   },
   overrides: {
-    abbr:         require('rebber-plugins/dist/type/abbr'),
-    comments:     require('rebber-plugins/dist/type/comments'),
-    conclusion:   require('rebber-plugins/dist/type/conclusion'),
-    emoticon:     require('rebber-plugins/dist/type/emoticon'),
-    figure:       require('rebber-plugins/dist/type/figure'),
-    gridTable:    require('rebber-plugins/dist/type/gridTable'),
-    inlineMath:   require('rebber-plugins/dist/type/math'),
+    abbr: require('rebber-plugins/dist/type/abbr'),
+    comments: require('rebber-plugins/dist/type/comments'),
+    conclusion: require('rebber-plugins/dist/type/conclusion'),
+    emoticon: require('rebber-plugins/dist/type/emoticon'),
+    figure: require('rebber-plugins/dist/type/figure'),
+    gridTable: require('rebber-plugins/dist/type/gridTable'),
+    inlineMath: require('rebber-plugins/dist/type/math'),
     introduction: require('rebber-plugins/dist/type/introduction'),
-    kbd:          require('rebber-plugins/dist/type/kbd'),
-    math:         require('rebber-plugins/dist/type/math'),
-    ping:         require('rebber-plugins/dist/type/ping'),
-    sub:          require('rebber-plugins/dist/type/sub'),
-    sup:          require('rebber-plugins/dist/type/sup'),
-    tableHeader:  require('rebber-plugins/dist/type/tableHeader'),
+    kbd: require('rebber-plugins/dist/type/kbd'),
+    math: require('rebber-plugins/dist/type/math'),
+    ping: require('rebber-plugins/dist/type/ping'),
+    sub: require('rebber-plugins/dist/type/sub'),
+    sup: require('rebber-plugins/dist/type/sup'),
+    tableHeader: require('rebber-plugins/dist/type/tableHeader'),
 
-    footnote:           require('rebber-plugins/dist/type/footnote'),
+    footnote: require('rebber-plugins/dist/type/footnote'),
     footnoteDefinition: require('rebber-plugins/dist/type/footnoteDefinition'),
-    footnoteReference:  require('rebber-plugins/dist/type/footnoteReference'),
+    footnoteReference: require('rebber-plugins/dist/type/footnoteReference'),
 
     centerAligned: require('rebber-plugins/dist/type/align'),
-    leftAligned:   require('rebber-plugins/dist/type/align'),
-    rightAligned:  require('rebber-plugins/dist/type/align'),
+    leftAligned: require('rebber-plugins/dist/type/align'),
+    rightAligned: require('rebber-plugins/dist/type/align'),
 
-    errorCustomBlock:       require('rebber-plugins/dist/type/customBlocks'),
+    errorCustomBlock: require('rebber-plugins/dist/type/customBlocks'),
     informationCustomBlock: require('rebber-plugins/dist/type/customBlocks'),
-    neutralCustomBlock:     require('rebber-plugins/dist/type/customBlocks'),
-    questionCustomBlock:    require('rebber-plugins/dist/type/customBlocks'),
-    secretCustomBlock:      require('rebber-plugins/dist/type/customBlocks'),
-    warningCustomBlock:     require('rebber-plugins/dist/type/customBlocks'),
+    neutralCustomBlock: require('rebber-plugins/dist/type/customBlocks'),
+    questionCustomBlock: require('rebber-plugins/dist/type/customBlocks'),
+    secretCustomBlock: require('rebber-plugins/dist/type/customBlocks'),
+    warningCustomBlock: require('rebber-plugins/dist/type/customBlocks'),
 
     inlineCode: (ctx, node) => {
       const escaped = escape(node.value)
@@ -54,36 +54,36 @@ const rebberConfig = {
       const alternative = node.data.hProperties.src.includes('jsfiddle') ? 'Code' : 'Video'
       const caption = node.caption || ''
       return `\\iframe{${node.data.hProperties.src}}[${alternative}][${caption}]`
-    },
+    }
   },
   emoticons: {
     emoticons: Object.entries(remarkConfig.emoticons.emoticons).reduce((acc, [key, val]) => {
       acc[key] = val.substring(val.lastIndexOf('/') + 1)
       return acc
-    }, {}),
+    }, {})
   },
-  codeAppendiceTitle:          'Annexes',
+  codeAppendiceTitle: 'Annexes',
   appendiceReferenceGenerator: (appendixIndex) => `Annexe de code ${appendixIndex}`,
-  code:                        require('../../utils/latex-code'),
-  customBlocks:                {
+  code: require('../../utils/latex-code'),
+  customBlocks: {
     map: {
-      error:       'Error',
+      error: 'Error',
       information: 'Information',
-      question:    'Question',
-      secret:      'Spoiler',
-      warning:     'Warning',
-      neutre:      'Neutral',
-    },
+      question: 'Question',
+      secret: 'Spoiler',
+      warning: 'Warning',
+      neutre: 'Neutral'
+    }
   },
   link: {
-    prefix: 'http://zestedesavoir.com',
+    prefix: 'http://zestedesavoir.com'
   },
   image: {
     inlineImage: (node) => `\\inlineImage{${node.url}}`,
-    image:       (node) => `\\image{${node.url}}`,
+    image: (node) => `\\image{${node.url}}`
   },
   figure: {
-    image: (_1, _2, caption, extra) => `\\image{${extra.url}}${caption ? `[${caption}]` : ''}\n`,
+    image: (_1, _2, caption, extra) => `\\image{${extra.url}}${caption ? `[${caption}]` : ''}\n`
   },
   headings: [
     (val) => `\\levelOneTitle{${val}}\n`,
@@ -92,8 +92,8 @@ const rebberConfig = {
     (val) => `\\levelFourTitle{${val}}\n`,
     (val) => `\\levelFiveTitle{${val}}\n`,
     (val) => `\\levelSixTitle{${val}}\n`,
-    (val) => `\\levelSevenTitle{${val}}\n`,
-  ],
+    (val) => `\\levelSevenTitle{${val}}\n`
+  ]
 }
 
 Object.assign(rebberConfig.overrides, {
@@ -132,7 +132,7 @@ Object.assign(rebberConfig.overrides, {
   neutreCustomBlock: (ctx, node) => {
     node.type = 'neutralCustomBlock'
     return rebberConfig.overrides.neutralCustomBlock(ctx, node)
-  },
+  }
 })
 
 module.exports = rebberConfig

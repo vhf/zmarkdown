@@ -1,15 +1,15 @@
 const mdastRenderer = require('./renderers/mdast')
-const htmlRenderer  = require('./renderers/html')
+const htmlRenderer = require('./renderers/html')
 const latexRenderer = require('./renderers/latex')
 
-const mdastConfig   = require('./config/mdast')
-const htmlConfig    = require('./config/html')
-const latexConfig   = require('./config/latex')
+const mdastConfig = require('./config/mdast')
+const htmlConfig = require('./config/html')
+const latexConfig = require('./config/latex')
 
 module.exports = (
   processor = null,
   tokenizerConfig = mdastConfig,
-  processorConfig,
+  processorConfig
 ) => {
   const parser = mdastRenderer(tokenizerConfig)
 

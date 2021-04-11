@@ -7,7 +7,7 @@ module.exports = introduction
 const introductionMacros = [
   content => `\\begin{LevelOneIntroduction}\n${content}\n\\end{LevelOneIntroduction}`,
   content => `\\begin{LevelTwoIntroduction}\n${content}\n\\end{LevelTwoIntroduction}`,
-  content => `\\begin{LevelThreeIntroduction}\n${content}\n\\end{LevelThreeIntroduction}`,
+  content => `\\begin{LevelThreeIntroduction}\n${content}\n\\end{LevelThreeIntroduction}`
 ]
 
 /* Stringify an introduction `node`. */

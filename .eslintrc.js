@@ -10,7 +10,14 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  rules: {
-    camelcase: 'error',
-  },
+  ignorePatterns: [
+    'node_modules/',
+    'coverage/',
+    'packages/**/node_modules/',
+    'packages/**/__tests__/',
+    'packages/**/dist/',
+    'packages/zmarkdown/webpack.config.js',
+    'packages/zmarkdown/client/dist/*',
+    'packages/zmarkdown/public/'
+  ]
 }

@@ -1,21 +1,21 @@
 "use strict";
 
-var visit = require('unist-util-visit');
+const visit = require('unist-util-visit');
 
 function plugin() {
   return transformer;
 }
 
 function transformer(tree) {
-  var footnotes = {};
+  const footnotes = {};
   visit(tree, 'footnote', convert);
   visit(tree, 'footnoteDefinition', createIds(footnotes));
   visit(tree, 'footnoteReference', replaceIds(footnotes));
 }
 
 function convert(node, index, parent) {
-  var id = autoId(node.position.start);
-  var footnoteDefinition = {
+  const id = autoId(node.position.start);
+  const footnoteDefinition = {
     type: 'footnoteDefinition',
     identifier: id,
     children: [{
@@ -23,7 +23,7 @@ function convert(node, index, parent) {
       children: node.children
     }]
   };
-  var footnoteReference = {
+  const footnoteReference = {
     type: 'footnoteReference',
     identifier: id
   };
@@ -31,10 +31,10 @@ function convert(node, index, parent) {
 }
 
 function createIds(footnotes) {
-  return function (node, index, parent) {
-    var identifier = node.identifier;
+  return (node, index, parent) => {
+    const identifier = node.identifier;
 
-    if (!footnotes.hasOwnProperty(identifier)) {
+    if (!Object.prototype.hasOwnProperty.call(footnotes, identifier)) {
       footnotes[identifier] = Object.keys(footnotes).length + 1;
     }
 
@@ -44,10 +44,10 @@ function createIds(footnotes) {
 }
 
 function replaceIds(footnotes) {
-  return function (node, index, parent) {
-    var identifier = node.identifier;
+  return (node, index, parent) => {
+    const identifier = node.identifier;
 
-    if (!footnotes.hasOwnProperty(identifier)) {
+    if (!Object.prototype.hasOwnProperty.call(footnotes, identifier)) {
       footnotes[identifier] = Object.keys(footnotes).length + 1;
     }
 
@@ -57,10 +57,12 @@ function replaceIds(footnotes) {
 }
 
 function autoId(node) {
-  var line = node.line,
-      column = node.column,
-      offset = node.offset;
-  return "l".concat(line, "c").concat(column, "o").concat(offset);
+  const {
+    line,
+    column,
+    offset
+  } = node;
+  return `l${line}c${column}o${offset}`;
 }
 
 module.exports = plugin;

@@ -1,39 +1,33 @@
 "use strict";
 
 /* Dependencies. */
-var all = require('rebber/dist/all');
+const all = require('rebber/dist/all');
 
-var has = require('has');
+const has = require('has');
 /* Expose. */
 
 
 module.exports = math;
-var defaultMacros = {
-  inlineMath: function inlineMath(content) {
-    return "$".concat(content, "$");
-  },
-  inlineMathDouble: function inlineMathDouble(content) {
-    return "$$".concat(content, "$$");
-  },
-  math: function math(content) {
-    return "\\[ ".concat(content, " \\]\n\n");
-  }
+const defaultMacros = {
+  inlineMath: content => `$${content}$`,
+  inlineMathDouble: content => `$$${content}$$`,
+  math: content => `\\[ ${content} \\]\n\n`
 };
 /* Stringify a Figure `node`. */
 
 function math(ctx, node, index, parent) {
-  var type = 'math';
+  let type = 'math';
 
   if (node.type === 'inlineMath') {
     try {
-      var classes = node.data.hProperties.className;
+      const classes = node.data.hProperties.className;
       type = classes.includes('math-display') ? 'inlineMathDouble' : 'inlineMath';
     } catch (e) {
       console.error(e, 'This rebber math plugin is only compatible with remark-math.');
     }
   }
 
-  var macro = has(ctx, 'math') && has(ctx.math, type) && ctx.math[type] || has(defaultMacros, type) && defaultMacros[type];
-  var content = all(ctx, node) || node.value || '';
+  const macro = has(ctx, 'math') && has(ctx.math, type) && ctx.math[type] || has(defaultMacros, type) && defaultMacros[type];
+  const content = all(ctx, node) || node.value || '';
   return macro(content.trim());
 }

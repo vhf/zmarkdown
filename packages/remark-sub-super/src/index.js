@@ -1,7 +1,7 @@
 const SPACE = ' '
 const markers = {
   '~': 'sub',
-  '^': 'sup',
+  '^': 'sup'
 }
 
 function locator (value, fromIndex) {
@@ -35,7 +35,7 @@ function inlinePlugin () {
     now.column += 1
     now.offset += 1
 
-    if (markers.hasOwnProperty(marker) &&
+    if (Object.prototype.hasOwnProperty.call(markers, marker) &&
       !value.startsWith(marker + SPACE) &&
       !value.startsWith(marker + marker)
     ) {
@@ -52,8 +52,8 @@ function inlinePlugin () {
         type: markers[marker],
         children: this.tokenizeInline(value.substring(1, endMarkerIndex), now),
         data: {
-          hName: markers[marker],
-        },
+          hName: markers[marker]
+        }
       })
     }
   }

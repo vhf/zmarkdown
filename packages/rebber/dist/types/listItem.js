@@ -1,23 +1,17 @@
 "use strict";
 
-var has = require('has');
+const has = require('has');
 
-var defaultMacro = function defaultMacro(innerText) {
-  return "\\item\\relax ".concat(innerText, "\n");
-};
+const defaultMacro = innerText => `\\item\\relax ${innerText}\n`;
 
-var defaultCheckedMacro = function defaultCheckedMacro(innerText) {
-  return "\\item[$\\boxtimes$]\\relax ".concat(innerText, "\n");
-};
+const defaultCheckedMacro = innerText => `\\item[$\\boxtimes$]\\relax ${innerText}\n`;
 
-var defaultUncheckedMacro = function defaultUncheckedMacro(innerText) {
-  return "\\item[$\\square$]\\relax ".concat(innerText, "\n");
-};
+const defaultUncheckedMacro = innerText => `\\item[$\\square$]\\relax ${innerText}\n`;
 
 module.exports = listItem;
 
 function listItem(ctx, node) {
-  var rebberListItem = has(ctx, 'listItem') ? ctx.listItem : defaultMacro;
+  let rebberListItem = has(ctx, 'listItem') ? ctx.listItem : defaultMacro;
 
   if (node.checked === true) {
     rebberListItem = has(ctx, 'checkedListItem') ? ctx.checkedListItem : defaultCheckedMacro;

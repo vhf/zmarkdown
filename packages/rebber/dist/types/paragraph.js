@@ -6,7 +6,7 @@ module.exports = paragraph;
  */
 
 function paragraph(ctx, node) {
-  var contents = require('../all')(ctx, node);
+  const contents = require('../all')(ctx, node);
 
-  return "".concat(contents.trim(), "\n\n");
+  return `${contents.trim()}\n\n`;
 }

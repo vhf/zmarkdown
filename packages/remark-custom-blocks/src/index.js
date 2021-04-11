@@ -1,7 +1,8 @@
 const spaceSeparated = require('space-separated-tokens')
 
 function escapeRegExp (str) {
-  return str.replace(new RegExp(`[-[\\]{}()*+?.\\\\^$|/]`, 'g'), '\\$&')
+  // eslint-disable-next-line prefer-regex-literals
+  return str.replace(new RegExp('[-[\\]{}()*+?.\\\\^$|/]', 'g'), '\\$&')
 }
 
 const C_NEWLINE = '\n'
@@ -29,7 +30,7 @@ function compilerFactory (nodeType) {
       } else {
         return `[[${nodeType}]]\n| ${text}`
       }
-    },
+    }
   }
 }
 
@@ -95,26 +96,25 @@ module.exports = function blockPlugin (availableBlocks = {}) {
       data: {
         hName: potentialBlock.contentsElement ? potentialBlock.contentsElement : 'div',
         hProperties: {
-          className: 'custom-block-body',
-        },
+          className: 'custom-block-body'
+        }
       },
-      children: this.tokenizeBlock(contentString, now),
+      children: this.tokenizeBlock(contentString, now)
     }
     exit()
 
     const blockChildren = [contents]
     if (titleAllowed && blockTitle) {
-
       const titleElement = potentialBlock.titleElement ? potentialBlock.titleElement : 'div'
       const titleNode = {
         type: `${blockType}CustomBlockHeading`,
         data: {
           hName: titleElement,
           hProperties: {
-            className: 'custom-block-heading',
-          },
+            className: 'custom-block-heading'
+          }
         },
-        children: this.tokenizeInline(blockTitle, now),
+        children: this.tokenizeInline(blockTitle, now)
       }
 
       blockChildren.unshift(titleNode)
@@ -128,9 +128,9 @@ module.exports = function blockPlugin (availableBlocks = {}) {
       data: {
         hName: potentialBlock.containerElement ? potentialBlock.containerElement : 'div',
         hProperties: {
-          className: ['custom-block', ...classList],
-        },
-      },
+          className: ['custom-block', ...classList]
+        }
+      }
     })
   }
 

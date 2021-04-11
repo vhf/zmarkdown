@@ -1,61 +1,35 @@
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+const visit = require('unist-util-visit');
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+module.exports = elemNames => (_, tree) => {
+  // This should contain something like ['sCustomBlockBody', 'secretCustomBlockBody']
+  const elemNamesBody = elemNames.map(v => v.concat('Body')); // Iterate over the elements to be flattened
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  for (const elemNameBody of elemNamesBody) {
+    visit(tree, elemNameBody, node => {
+      // Recursive function that flattens all matching elements and keeps the others
+      function flattenTree(blockTree) {
+        return blockTree.map(v => {
+          if (elemNames.includes(v.type)) {
+            // Get sCustomBlock > sCustomBlockBody > *
+            const newTree = v.children.filter(v => elemNamesBody.includes(v.type)) // This is sub-optimal, but flatMap doesn't have good support by now
+            .reduce((acc, e) => acc.concat(e.children), []); // First level of recursion: on direct descendents
 
-var visit = require('unist-util-visit');
+            return flattenTree(newTree);
+          } else {
+            // Second level of recursion: on indirect descendents
+            if (v.children) {
+              v.children = flattenTree(v.children);
+            }
 
-module.exports = function (elemNames) {
-  return function (_, tree) {
-    // This should contain something like ['sCustomBlockBody', 'secretCustomBlockBody']
-    var elemNamesBody = elemNames.map(function (v) {
-      return v.concat('Body');
-    }); // Iterate over the elements to be flattened
-
-    var _iterator = _createForOfIteratorHelper(elemNamesBody),
-        _step;
-
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var elemNameBody = _step.value;
-        visit(tree, elemNameBody, function (node) {
-          // Recursive function that flattens all matching elements and keeps the others
-          function flattenTree(blockTree) {
-            return blockTree.map(function (v) {
-              if (elemNames.includes(v.type)) {
-                // Get sCustomBlock > sCustomBlockBody > *
-                var newTree = v.children.filter(function (v) {
-                  return elemNamesBody.includes(v.type);
-                }) // This is sub-optimal, but flatMap doesn't have good support by now
-                .reduce(function (acc, e) {
-                  return acc.concat(e.children);
-                }, []); // First level of recursion: on direct descendents
-
-                return flattenTree(newTree);
-              } else {
-                // Second level of recursion: on indirect descendents
-                if (v.children) {
-                  v.children = flattenTree(v.children);
-                }
-
-                return v;
-              }
-            }).reduce(function (acc, e) {
-              return acc.concat(e);
-            }, []);
-          } // First round on direct children
+            return v;
+          }
+        }).reduce((acc, e) => acc.concat(e), []);
+      } // First round on direct children
 
 
-          node.children = flattenTree(node.children);
-        });
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-  };
+      node.children = flattenTree(node.children);
+    });
+  }
 };

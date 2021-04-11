@@ -43,7 +43,6 @@ function plugin (config) {
         previous === CHAR_RIGHT &&
         (!preceding || !whitespace(preceding))
       ) {
-
         /* istanbul ignore if - never used (yet) */
         if (silent) return true
 
@@ -51,8 +50,8 @@ function plugin (config) {
           type: 'kbd',
           children: this.tokenizeInline(subvalue, now),
           data: {
-            hName: 'kbd',
-          },
+            hName: 'kbd'
+          }
         })
       }
 

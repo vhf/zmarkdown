@@ -23,7 +23,6 @@ function plugin (title = '') {
 
   function visitor (node, index, parent) {
     if (node.tagName === 'li' && node.properties.id) {
-
       if (!node.children || !node.children.length) return
       let aTag = findLastLink(node, 'footnote-backref')
 

@@ -4,12 +4,12 @@ const xtend = require('xtend')
 
 const legendBlock = {
   table: 'Table:',
-  code: 'Code:',
+  code: 'Code:'
 }
 
 const internLegendBlock = {
   blockquote: 'Source:',
-  image: 'Figure:',
+  image: 'Figure:'
 }
 
 function plugin (opts) {
@@ -149,19 +149,19 @@ function internLegendVisitor (internalBlocks) {
       type: 'figcaption',
       children: legendNodes,
       data: {
-        hName: 'figcaption',
-      },
+        hName: 'figcaption'
+      }
     }
 
     const figure = {
       type: 'figure',
       children: [
         clone(node),
-        figcaption,
+        figcaption
       ],
       data: {
-        hName: 'figure',
-      },
+        hName: 'figure'
+      }
     }
 
     node.type = figure.type
@@ -184,12 +184,14 @@ function externLegendVisitorCreator (blocks) {
     const firstTextLine = firstChild.value.replace(blocks[node.type], '').split('\n')[0]
 
     if (firstChild.value.includes('\n')) {
-      followingNodes.push({type: 'text',
-        value: firstChild.value.replace(blocks[node.type], '').split('\n')[1]})
+      followingNodes.push({
+        type: 'text',
+        value: firstChild.value.replace(blocks[node.type], '').split('\n')[1]
+      })
     }
     legendNodes.push({
       type: 'text',
-      value: firstTextLine.trimLeft(), // remove the " " after the {prefix}:
+      value: firstTextLine.trimLeft() // remove the " " after the {prefix}:
     })
 
     legendNode.children.forEach((node, index) => {
@@ -201,7 +203,7 @@ function externLegendVisitorCreator (blocks) {
           node.value = node.value.split('\n')[1]
           followingNodes.push(node)
         }
-        legendNodes.push({type: 'text', value: keepInLegend})
+        legendNodes.push({ type: 'text', value: keepInLegend })
       } else {
         legendNodes.push(clone(node))
       }
@@ -211,18 +213,18 @@ function externLegendVisitorCreator (blocks) {
       type: 'figcaption',
       children: legendNodes,
       data: {
-        hName: 'figcaption',
-      },
+        hName: 'figcaption'
+      }
     }
     const figure = {
       type: 'figure',
       children: [
         clone(node),
-        figcaption,
+        figcaption
       ],
       data: {
-        hName: 'figure',
-      },
+        hName: 'figure'
+      }
     }
 
     node.type = figure.type
@@ -230,7 +232,7 @@ function externLegendVisitorCreator (blocks) {
     node.data = figure.data
 
     if (followingNodes.length) {
-      parent.children.splice(index + 1, 1, {type: 'paragraph', children: followingNodes})
+      parent.children.splice(index + 1, 1, { type: 'paragraph', children: followingNodes })
     } else {
       parent.children.splice(index + 1, 1)
     }

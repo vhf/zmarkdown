@@ -68,6 +68,6 @@ function parseCodeMeta () {
     const linenostart = parseInt(attrs.linenostart) || 1
     const hlLines = rangeNormalize(attrs.hl_lines || '')
 
-    node.meta = {linenostart, hlLines}
+    node.meta = { linenostart, hlLines }
   }
 }

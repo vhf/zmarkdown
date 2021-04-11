@@ -1,16 +1,16 @@
 "use strict";
 
 /* Dependencies. */
-var all = require('rebber/dist/all');
+const all = require('rebber/dist/all');
 
-var clone = require('clone');
+const clone = require('clone');
 /* Expose. */
 
 
 module.exports = appendixPlugin;
 
 function definitionMacro(ctx, identifier, url) {
-  return "\\label{".concat(identifier, "}").concat(url);
+  return `\\label{${identifier}}${url}`;
 }
 
 function appendixPlugin(ctx, node) {
@@ -18,8 +18,8 @@ function appendixPlugin(ctx, node) {
     return '';
   }
 
-  var overriddenCtx = clone(ctx);
+  const overriddenCtx = clone(ctx);
   overriddenCtx.definition = definitionMacro;
-  var innerText = all(overriddenCtx, node);
-  return "\\begin{appendices}\n".concat(innerText.trimEnd(), "\n\\end{appendices}");
+  const innerText = all(overriddenCtx, node);
+  return `\\begin{appendices}\n${innerText.trimEnd()}\n\\end{appendices}`;
 }

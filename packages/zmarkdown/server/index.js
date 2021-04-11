@@ -7,9 +7,9 @@ const path = require('path')
 const zmdVersion = require('../package.json').version
 
 Sentry.init({
-  dsn:         process.env.SENTRY_DSN,
-  release:     process.env.SENTRY_RELEASE || zmdVersion,
-  environment: process.env.SENTRY_ENVIRONMENT || process.env.ZDS_ENVIRONMENT,
+  dsn: process.env.SENTRY_DSN,
+  release: process.env.SENTRY_RELEASE || zmdVersion,
+  environment: process.env.SENTRY_ENVIRONMENT || process.env.ZDS_ENVIRONMENT
 })
 
 const app = express()

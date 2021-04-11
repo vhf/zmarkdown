@@ -6,7 +6,7 @@ const helpMsg = `remark-ping: expected configuration to be passed: {
 module.exports = function plugin ({
   pingUsername,
   userURL,
-  usernameRegex = /@(?:\*\*([^*]+)\*\*|(\w+))/,
+  usernameRegex = /@(?:\*\*([^*]+)\*\*|(\w+))/
 }) {
   if (typeof pingUsername !== 'function' || typeof userURL !== 'function') {
     throw new Error(helpMsg)
@@ -31,30 +31,30 @@ module.exports = function plugin ({
           hProperties: {
             href: url,
             rel: 'nofollow',
-            class: 'ping ping-link',
-          },
+            class: 'ping ping-link'
+          }
         },
         children: [{
           type: 'text',
-          value: '@',
+          value: '@'
         }, {
           type: 'emphasis',
           data: {
             hName: 'span',
             hProperties: {
-              class: 'ping-username',
-            },
+              class: 'ping-username'
+            }
           },
           children: [{
             type: 'text',
-            value: username,
-          }],
-        }],
+            value: username
+          }]
+        }]
       })
     } else {
       return eat(total[0])({
         type: 'text',
-        value: total[0],
+        value: total[0]
       })
     }
   }
@@ -97,7 +97,7 @@ module.exports = function plugin ({
     visit(tree, 'link', (node) => {
       visit(node, 'ping', (ping, index) => {
         ping.data.hName = 'span'
-        ping.data.hProperties = {class: 'ping ping-in-link'}
+        ping.data.hProperties = { class: 'ping ping-in-link' }
       })
     })
     visit(tree, 'ping', (node) => {

@@ -1,22 +1,13 @@
 "use strict";
 
-var beginMarkerFactory = function beginMarkerFactory() {
-  var marker = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'COMMENTS';
-  return "<--".concat(marker, " ");
-};
+const beginMarkerFactory = (marker = 'COMMENTS') => `<--${marker} `;
 
-var endMarkerFactory = function endMarkerFactory() {
-  var marker = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'COMMENTS';
-  return " ".concat(marker, "-->");
-};
+const endMarkerFactory = (marker = 'COMMENTS') => ` ${marker}-->`;
 
-function plugin() {
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      _ref$beginMarker = _ref.beginMarker,
-      beginMarker = _ref$beginMarker === void 0 ? 'COMMENTS' : _ref$beginMarker,
-      _ref$endMarker = _ref.endMarker,
-      endMarker = _ref$endMarker === void 0 ? 'COMMENTS' : _ref$endMarker;
-
+function plugin({
+  beginMarker = 'COMMENTS',
+  endMarker = 'COMMENTS'
+} = {}) {
   beginMarker = beginMarkerFactory(beginMarker);
   endMarker = endMarkerFactory(endMarker);
 
@@ -25,36 +16,36 @@ function plugin() {
   }
 
   function inlineTokenizer(eat, value, silent) {
-    var keepBegin = value.indexOf(beginMarker);
-    var keepEnd = value.indexOf(endMarker);
+    const keepBegin = value.indexOf(beginMarker);
+    const keepEnd = value.indexOf(endMarker);
     if (keepBegin !== 0 || keepEnd === -1) return;
     /* istanbul ignore if - never used (yet) */
 
     if (silent) return true;
-    var comment = value.substring(beginMarker.length, keepEnd);
+    const comment = value.substring(beginMarker.length, keepEnd);
     return eat(beginMarker + comment + endMarker)({
       type: 'comments',
       value: '',
       data: {
-        comment: comment
+        comment
       }
     });
   }
 
   inlineTokenizer.locator = locator;
-  var Parser = this.Parser; // Inject inlineTokenizer
+  const Parser = this.Parser; // Inject inlineTokenizer
 
-  var inlineTokenizers = Parser.prototype.inlineTokenizers;
-  var inlineMethods = Parser.prototype.inlineMethods;
+  const inlineTokenizers = Parser.prototype.inlineTokenizers;
+  const inlineMethods = Parser.prototype.inlineMethods;
   inlineTokenizers.comments = inlineTokenizer;
   inlineMethods.splice(inlineMethods.indexOf('text'), 0, 'comments');
-  var Compiler = this.Compiler;
+  const Compiler = this.Compiler;
 
   if (Compiler) {
-    var visitors = Compiler.prototype.visitors;
+    const visitors = Compiler.prototype.visitors;
     if (!visitors) return;
 
-    visitors.comments = function (node) {
+    visitors.comments = node => {
       return beginMarker + node.data.comment + endMarker;
     };
   }

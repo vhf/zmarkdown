@@ -3,11 +3,11 @@ const visit = require('unist-util-visit')
 const stringWidth = require('string-width')
 const splitter = new (require('grapheme-splitter'))()
 
-const mainLineRegex = new RegExp(/((\+)|(\|)).+((\|)|(\+))/)
-const totalMainLineRegex = new RegExp(/^((\+)|(\|)).+((\|)|(\+))$/)
-const headerLineRegex = new RegExp(/^\+=[=+]+=\+$/)
-const partLineRegex = new RegExp(/\+-[-+]+-\+/)
-const separationLineRegex = new RegExp(/^\+-[-+]+-\+$/)
+const mainLineRegex = /((\+)|(\|)).+((\|)|(\+))/
+const totalMainLineRegex = /^((\+)|(\|)).+((\|)|(\+))$/
+const headerLineRegex = /^\+=[=+]+=\+$/
+const partLineRegex = /\+-[-+]+-\+/
+const separationLineRegex = /^\+-[-+]+-\+$/
 
 module.exports = plugin
 
@@ -161,7 +161,6 @@ class TableCell {
     this._lines = newLines
   }
 }
-
 
 function merge (beforeTable, gridTable, afterTable) {
   // get the eaten text
@@ -382,8 +381,8 @@ function generateTable (tableContent, now, tokenizer) {
     type: 'gridTable',
     children: [],
     data: {
-      hName: 'table',
-    },
+      hName: 'table'
+    }
   }
 
   const hasHeader = tableContent._parts.length > 1
@@ -394,8 +393,8 @@ function generateTable (tableContent, now, tokenizer) {
       type: 'tableHeader',
       children: [],
       data: {
-        hName: (hasHeader && p === 0) ? 'thead' : 'tbody',
-      },
+        hName: (hasHeader && p === 0) ? 'thead' : 'tbody'
+      }
     }
     for (let r = 0; r < part._rows.length; r++) {
       const row = part._rows[r]
@@ -403,8 +402,8 @@ function generateTable (tableContent, now, tokenizer) {
         type: 'tableRow',
         children: [],
         data: {
-          hName: 'tr',
-        },
+          hName: 'tr'
+        }
       }
       for (let c = 0; c < row._cells.length; c++) {
         const cell = row._cells[c]
@@ -419,9 +418,9 @@ function generateTable (tableContent, now, tokenizer) {
             hName: (hasHeader && p === 0) ? 'th' : 'td',
             hProperties: {
               colspan: cell._colspan,
-              rowspan: cell._rowspan,
-            },
-          },
+              rowspan: cell._rowspan
+            }
+          }
         }
 
         const endLine = r + cell._rowspan
@@ -487,7 +486,7 @@ function gridTableTokenizer (eat, value, silent) {
   const wrapperBlock = {
     type: 'element',
     tagName: 'WrapperBlock',
-    children: [],
+    children: []
   }
 
   if (before.length) {
@@ -542,7 +541,7 @@ function createGrid (nbRows, nbCols) {
   for (let i = 0; i < nbRows; i++) {
     grid.push([])
     for (let j = 0; j < nbCols; j++) {
-      grid[i].push({height: -1, width: -1, hasBottom: true, hasRigth: true})
+      grid[i].push({ height: -1, width: -1, hasBottom: true, hasRigth: true })
     }
   }
 

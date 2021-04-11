@@ -83,9 +83,9 @@ module.exports = function inlinePlugin (ctx) {
         hName: 'img',
         hProperties: {
           src: src,
-          alt: emoticon,
-        },
-      },
+          alt: emoticon
+        }
+      }
     }
 
     if (emoticonClasses) {

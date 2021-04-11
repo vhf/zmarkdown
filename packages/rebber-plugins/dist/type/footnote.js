@@ -1,35 +1,36 @@
 "use strict";
 
 /* Dependencies. */
-var all = require('rebber/dist/all');
+const all = require('rebber/dist/all');
 /* Expose. */
 
 
 module.exports = notes;
 
-var defaultMacro = function defaultMacro(identifier, text, protect) {
-  var footnote = "\\footnote[".concat(identifier, "]{\\footnotemark{footnote:").concat(identifier, "} ").concat(text, "}");
+const defaultMacro = (identifier, text, protect) => {
+  const footnote = `\\footnote[${identifier}]{\\footnotemark{footnote:${identifier}} ${text}}`;
 
   if (protect) {
-    return "".concat(footnote, "\\protect");
+    return `${footnote}\\protect`;
   }
 
   return footnote;
 };
 
 function autoId(node) {
-  var _node$position$start = node.position.start,
-      line = _node$position$start.line,
-      column = _node$position$start.column,
-      offset = _node$position$start.offset;
-  return "l".concat(line, "c").concat(column, "o").concat(offset);
+  const {
+    line,
+    column,
+    offset
+  } = node.position.start;
+  return `l${line}c${column}o${offset}`;
 }
 /* Stringify a footnote `node`. */
 
 
 function notes(ctx, node) {
-  var macro = ctx.footnote || defaultMacro;
-  var protect = !!node.inHeading;
-  var identifier = autoId(node);
+  const macro = ctx.footnote || defaultMacro;
+  const protect = !!node.inHeading;
+  const identifier = autoId(node);
   return macro(identifier, all(ctx, node).trim(), protect);
 }

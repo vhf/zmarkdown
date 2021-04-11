@@ -1,8 +1,8 @@
 "use strict";
 
-var visit = require('unist-util-visit');
+const visit = require('unist-util-visit');
 
-var inline = ['a', 'b', 'big', 'i', 'small', 'tt', 'abbr', 'acronym', 'cite', 'code', 'dfn', 'em', 'kbd', 'strong', 'samp', 'time', 'var', 'bdo', 'br', 'img', 'map', 'object', 'p', 'q', 'script', 'span', 'sub', 'sup', 'button', 'input', 'label', 'select', 'textarea'];
+const inline = ['a', 'b', 'big', 'i', 'small', 'tt', 'abbr', 'acronym', 'cite', 'code', 'dfn', 'em', 'kbd', 'strong', 'samp', 'time', 'var', 'bdo', 'br', 'img', 'map', 'object', 'p', 'q', 'script', 'span', 'sub', 'sup', 'button', 'input', 'label', 'select', 'textarea'];
 
 function plugin() {
   return transformer;
@@ -13,7 +13,7 @@ function transformer(tree) {
 }
 
 function visitor(node, index, parent) {
-  var replacement = {
+  let replacement = {
     type: 'text',
     value: node.value
   };

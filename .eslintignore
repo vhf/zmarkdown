@@ -1,5 +1,0 @@
-coverage
-packages/*/dist
-public
-node_modules
-packages/zmarkdown/client/dist/*

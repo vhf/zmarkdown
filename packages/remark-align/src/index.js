@@ -4,7 +4,7 @@ const C_NEWLINE = '\n'
 const C_NEWPARAGRAPH = '\n\n'
 
 module.exports = function plugin (classNames = {}) {
-  const locateMarker = new RegExp(`[^\\\\]?(->|<-)`)
+  const locateMarker = /[^\\\\]?(->|<-)/
   const endMarkers = ['->', '<-']
 
   function alignTokenizer (eat, value, silent) {
@@ -39,7 +39,6 @@ module.exports = function plugin (classNames = {}) {
         lineToEat.length >= 2 &&
         endIndex !== -1
       ) {
-
         if (endMarker === '') endMarker = lineToEat.slice(-2)
 
         finishedBlocks.push(linesToEat.join(C_NEWLINE))
@@ -98,9 +97,9 @@ module.exports = function plugin (classNames = {}) {
       data: {
         hName: 'div',
         hProperties: {
-          class: spaceSeparated.parse(classes),
-        },
-      },
+          class: spaceSeparated.parse(classes)
+        }
+      }
     })
   }
 
@@ -125,7 +124,7 @@ module.exports = function plugin (classNames = {}) {
       const markers = {
         left: ['<-', '<-'],
         right: ['->', '->'],
-        center: ['->', '<-'],
+        center: ['->', '<-']
       }
       const alignType = node.type.slice(0, -7)
 

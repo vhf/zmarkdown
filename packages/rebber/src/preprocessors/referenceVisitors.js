@@ -27,6 +27,6 @@ module.exports = () => {
     },
     addIdentifier (identifier, content) {
       state[identifier] = content
-    },
+    }
   }
 }

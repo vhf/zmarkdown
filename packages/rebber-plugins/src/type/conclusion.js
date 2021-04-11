@@ -7,7 +7,7 @@ module.exports = conclusion
 const conclusionMacros = [
   content => `\\begin{LevelOneConclusion}\n${content}\n\\end{LevelOneConclusion}`,
   content => `\\begin{LevelTwoConclusion}\n${content}\n\\end{LevelTwoConclusion}`,
-  content => `\\begin{LevelThreeConclusion}\n${content}\n\\end{LevelThreeConclusion}`,
+  content => `\\begin{LevelThreeConclusion}\n${content}\n\\end{LevelThreeConclusion}`
 ]
 
 /* Stringify an conclusion `node`. */

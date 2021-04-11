@@ -8,46 +8,47 @@ const codeNodeConstructor = (lang, value) => {
 
   // pre > code(.language-xxx)?
   return {
-    type:       'element',
-    tagName:    'pre',
+    type: 'element',
+    tagName: 'pre',
     properties: {},
-    children:   [{
-      type:     'element',
-      tagName:  'code',
+    children: [{
+      type: 'element',
+      tagName: 'code',
       properties,
       children: [{
         type: 'text',
-        value,
-      }],
-    }]}
+        value
+      }]
+    }]
+  }
 }
 
 // div.hljs-code-div
 const parentDivConstructor = children => ({
-  type:       'element',
-  tagName:    'div',
-  properties: {className: ['hljs-code-div']},
-  children,
+  type: 'element',
+  tagName: 'div',
+  properties: { className: ['hljs-code-div'] },
+  children
 })
 
 // div.hljs-line-numbers
 const lineNumberDivConstructor = children => ({
-  type:       'element',
-  tagName:    'div',
-  properties: {className: ['hljs-line-numbers']},
-  children,
+  type: 'element',
+  tagName: 'div',
+  properties: { className: ['hljs-line-numbers'] },
+  children
 })
 
 // span[data-count](.hll)?
 const lineNumberElemConstructor = (count, hl) => {
-  const properties = {'data-count': String(count)}
+  const properties = { 'data-count': String(count) }
   if (hl) properties.className = 'hll'
 
   return {
-    type:     'element',
-    tagName:  'span',
+    type: 'element',
+    tagName: 'span',
     properties,
-    children: [],
+    children: []
   }
 }
 
@@ -91,6 +92,6 @@ function code (_, node) {
 
   return parentDivConstructor([
     lineNumberDivConstructor(lineNumberElems),
-    codeNodeConstructor(lang, value),
+    codeNodeConstructor(lang, value)
   ])
 }

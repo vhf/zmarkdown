@@ -13,7 +13,7 @@ const defaultMacro = (identifier, text, protect) => {
 }
 
 function autoId (node) {
-  const {line, column, offset} = node.position.start
+  const { line, column, offset } = node.position.start
   return `l${line}c${column}o${offset}`
 }
 

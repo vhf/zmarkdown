@@ -1,14 +1,14 @@
 "use strict";
 
 /* Dependencies. */
-var trimLines = require('trim-lines');
+const trimLines = require('trim-lines');
 
-var escaper = require('../escaper');
+const escaper = require('../escaper');
 /* Stringify a text `node`. */
 
 
 module.exports = function text(ctx, node, index, parent) {
-  var value = trimLines(node.value);
+  const value = trimLines(node.value);
   return isLiteral(parent) ? value : escaper(value, ctx.escapes);
 }; // TODO: `tagName` isn't part of MDAST!
 

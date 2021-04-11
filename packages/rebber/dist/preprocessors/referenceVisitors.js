@@ -1,11 +1,11 @@
 "use strict";
 
-module.exports = function () {
-  var state = {};
+module.exports = () => {
+  const state = {};
   return {
-    definitionVisitor: function definitionVisitor() {
-      return function (node, index, parent) {
-        var identifier = node.identifier;
+    definitionVisitor() {
+      return (node, index, parent) => {
+        let identifier = node.identifier;
 
         while (Object.keys(state).includes(identifier)) {
           identifier += '-1';
@@ -20,15 +20,18 @@ module.exports = function () {
         }
       };
     },
-    imageReferenceVisitor: function imageReferenceVisitor() {
-      return function (node) {
+
+    imageReferenceVisitor() {
+      return node => {
         node.type = 'image';
         node.title = '';
         node.url = state[node.identifier];
       };
     },
-    addIdentifier: function addIdentifier(identifier, content) {
+
+    addIdentifier(identifier, content) {
       state[identifier] = content;
     }
+
   };
 };

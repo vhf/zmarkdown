@@ -1,4 +1,3 @@
-const {format, parse, URLSearchParams} = require('url')
 const visit = require('unist-util-visit')
 const fetch = require('node-fetch')
 
@@ -8,7 +7,7 @@ module.exports = function plugin (opts) {
   }
 
   function detectProvider (url) {
-    const hostname = parse(url).hostname
+    const hostname = new URL(url).hostname
     return opts[hostname]
   }
 
@@ -37,8 +36,8 @@ module.exports = function plugin (opts) {
         type: 'paragraph',
         children: [{
           type: 'text',
-          value: eatenValue,
-        }],
+          value: eatenValue
+        }]
       })
     }
 
@@ -50,8 +49,8 @@ module.exports = function plugin (opts) {
         width: provider.width,
         height: provider.height,
         allowfullscreen: true,
-        frameborder: '0',
-      },
+        frameborder: '0'
+      }
     }
 
     if (provider.oembed) {
@@ -62,9 +61,9 @@ module.exports = function plugin (opts) {
           fallback: {
             type: 'link',
             url: url,
-            children: [{type: 'text', value: url}],
-          },
-        },
+            children: [{ type: 'text', value: url }]
+          }
+        }
       })
     } else {
       finalUrl = computeFinalUrl(provider, url)
@@ -76,16 +75,16 @@ module.exports = function plugin (opts) {
           width: provider.width,
           height: provider.height,
           allowfullscreen: true,
-          frameborder: '0',
+          frameborder: '0'
         },
-        thumbnail: thumbnail,
+        thumbnail: thumbnail
       })
     }
 
     eat(eatenValue)({
       type: 'iframe',
       src: url,
-      data,
+      data
     })
   }
 
@@ -130,7 +129,7 @@ module.exports = function plugin (opts) {
           url,
           thumbnail,
           height,
-          width,
+          width
         } = await fetchEmbed(oembed.url)
 
         node.thumbnail = thumbnail
@@ -139,9 +138,8 @@ module.exports = function plugin (opts) {
           width: provider.width || width,
           height: provider.height || height,
           allowfullscreen: true,
-          frameborder: '0',
+          frameborder: '0'
         })
-
       } catch (err) {
         let message = err.message
         if (err.name === 'AbortError') {
@@ -160,27 +158,27 @@ module.exports = function plugin (opts) {
 
 function computeFinalUrl (provider, url) {
   let finalUrl = url
-  let parsed = parse(finalUrl)
+  let parsed = new URL(finalUrl)
 
   if (provider.droppedQueryParameters && parsed.search) {
     const search = new URLSearchParams(parsed.search)
     provider.droppedQueryParameters.forEach(ignored => search.delete(ignored))
     parsed.search = search.toString()
-    finalUrl = format(parsed)
+    finalUrl = parsed.toString()
   }
 
   if (provider.replace && provider.replace.length) {
     provider.replace.forEach((rule) => {
       const [from, to] = rule
       if (from && to) finalUrl = finalUrl.replace(from, to)
-      parsed = parse(finalUrl)
+      parsed = new URL(finalUrl)
     })
-    finalUrl = format(parsed)
+    finalUrl = parsed.toString()
   }
 
   if (provider.removeFileName) {
     parsed.pathname = parsed.pathname.substring(0, parsed.pathname.lastIndexOf('/'))
-    finalUrl = format(parsed)
+    finalUrl = parsed.toString()
   }
 
   if (provider.removeAfter && finalUrl.includes(provider.removeAfter)) {
@@ -212,7 +210,7 @@ function computeThumbnail (provider, url) {
 }
 
 async function fetchEmbed (url) {
-  return fetch(url, {timeout: 1500})
+  return fetch(url, { timeout: 1500 })
     .then((res) => res.json())
     .then((oembedRes) => {
       const oembedUrl = oembedRes.html.match(/src="(.+?)"/)[1]
@@ -221,7 +219,7 @@ async function fetchEmbed (url) {
         url: oembedUrl,
         thumbnail: oembedThumbnail,
         width: oembedRes.width,
-        height: oembedRes.height,
+        height: oembedRes.height
       }
     })
 }

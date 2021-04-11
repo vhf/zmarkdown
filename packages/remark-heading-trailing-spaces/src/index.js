@@ -1,5 +1,4 @@
 module.exports = function alignPlugin () {
-
   function headingTokenizer (eat, value, silent) {
     /* istanbul ignore if - never used (yet) */
     if (silent) return true
@@ -20,7 +19,7 @@ module.exports = function alignPlugin () {
     return add({
       type: 'heading',
       depth: lines[1][0] === '=' ? 1 : 2,
-      children: this.tokenizeInline(lines[0].slice(0, -1), now),
+      children: this.tokenizeInline(lines[0].slice(0, -1), now)
     })
   }
 

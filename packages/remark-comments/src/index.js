@@ -1,7 +1,7 @@
 const beginMarkerFactory = (marker = 'COMMENTS') => `<--${marker} `
 const endMarkerFactory = (marker = 'COMMENTS') => ` ${marker}-->`
 
-function plugin ({beginMarker = 'COMMENTS', endMarker = 'COMMENTS'} = {}) {
+function plugin ({ beginMarker = 'COMMENTS', endMarker = 'COMMENTS' } = {}) {
   beginMarker = beginMarkerFactory(beginMarker)
   endMarker = endMarkerFactory(endMarker)
 
@@ -21,7 +21,7 @@ function plugin ({beginMarker = 'COMMENTS', endMarker = 'COMMENTS'} = {}) {
     return eat(beginMarker + comment + endMarker)({
       type: 'comments',
       value: '',
-      data: {comment},
+      data: { comment }
     })
   }
   inlineTokenizer.locator = locator

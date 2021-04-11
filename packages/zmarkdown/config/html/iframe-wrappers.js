@@ -13,11 +13,11 @@ module.exports = {
       'iframe',
       ['div', 'div'],
       [['video-wrapper'], ['video-container']],
-      node => !jsFiddleAndInaFilter(node),
+      node => !jsFiddleAndInaFilter(node)
     ),
-    createWrapper('iframe', 'div', ['iframe-wrapper'], jsFiddleAndInaFilter),
+    createWrapper('iframe', 'div', ['iframe-wrapper'], jsFiddleAndInaFilter)
   ],
   table: [
-    createWrapper('table', 'div', ['table-wrapper']),
-  ],
+    createWrapper('table', 'div', ['table-wrapper'])
+  ]
 }

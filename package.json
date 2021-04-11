@@ -81,5 +81,16 @@
       "packages/zmarkdown/*.js",
       "!**/*.config.js"
     ]
+  },
+  "standard": {
+    "ignore": [
+      "packages/**/__tests__/",
+      "packages/**/dist/",
+      "coverage/",
+      "node_modules/",
+      "packages/zmarkdown/client/dist/*",
+      "packages/zmarkdown/webpack.config.js",
+      "packages/**/node_modules/"
+    ]
   }
 }

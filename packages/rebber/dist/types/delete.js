@@ -7,7 +7,7 @@ module.exports = deleteNode;
 /* Stringify a delete `node`. */
 
 function deleteNode(ctx, node, index, parent) {
-  var contents = require('../all')(ctx, node);
+  const contents = require('../all')(ctx, node);
 
-  return "\\sout{".concat(contents, "}");
+  return `\\sout{${contents}}`;
 }

@@ -1,17 +1,15 @@
 "use strict";
 
-var visit = require('unist-util-visit');
+const visit = require('unist-util-visit');
 
-var appendix = require('../type/appendix');
+const appendix = require('../type/appendix');
 
-var defaultReferenceGenerator = function defaultReferenceGenerator(appendixIndex) {
-  return "Code appendice ".concat(appendixIndex);
-};
+const defaultReferenceGenerator = appendixIndex => `Code appendice ${appendixIndex}`;
 
-module.exports = function (ctx, tree) {
+module.exports = (ctx, tree) => {
   ctx.overrides.appendix = appendix;
-  return function (node) {
-    var appendix = tree.children[tree.children.length - 1];
+  return node => {
+    let appendix = tree.children[tree.children.length - 1];
 
     if (!appendix || appendix.type !== 'appendix') {
       appendix = {
@@ -21,26 +19,26 @@ module.exports = function (ctx, tree) {
       tree.children.push(appendix);
     }
 
-    var appendixIndex = appendix.children.length + 1;
-    visit(node, 'code', function (innerNode, index, _parent) {
+    let appendixIndex = appendix.children.length + 1;
+    visit(node, 'code', (innerNode, index, _parent) => {
       appendix.children.push({
         type: 'paragraph',
         children: [{
           type: 'heading',
           children: [{
             type: 'definition',
-            identifier: "appendix-".concat(appendixIndex),
-            url: "".concat(ctx.codeAppendiceTitle || 'Appendix', " ").concat(appendixIndex),
+            identifier: `appendix-${appendixIndex}`,
+            url: `${ctx.codeAppendiceTitle || 'Appendix'} ${appendixIndex}`,
             referenceType: 'full'
           }],
           depth: 1
         }]
       });
       appendix.children.push(innerNode);
-      var generator = ctx.appendiceReferenceGenerator || defaultReferenceGenerator;
-      var referenceNode = {
+      const generator = ctx.appendiceReferenceGenerator || defaultReferenceGenerator;
+      const referenceNode = {
         type: 'linkReference',
-        identifier: "appendix-".concat(appendixIndex),
+        identifier: `appendix-${appendixIndex}`,
         children: [{
           type: 'text',
           value: generator(appendixIndex)

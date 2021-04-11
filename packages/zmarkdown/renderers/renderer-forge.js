@@ -3,8 +3,8 @@ module.exports = (base, defaultPluginList, postProcessorList) => config => {
   if (!config.disableTokenizers) {
     config.disableTokenizers = {
       internal: [],
-      meta:     [],
-      inline:   [],
+      meta: [],
+      inline: []
     }
   }
 
@@ -15,8 +15,8 @@ module.exports = (base, defaultPluginList, postProcessorList) => config => {
   }
 
   // Create an unified list of plugins
-  const pluginList   = Object.assign({}, defaultPluginList, config.extraPlugins)
-  const pluginNames  = Object.keys(pluginList)
+  const pluginList = Object.assign({}, defaultPluginList, config.extraPlugins)
+  const pluginNames = Object.keys(pluginList)
 
   const postProcessorNames = Object.keys(postProcessorList)
 

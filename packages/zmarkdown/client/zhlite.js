@@ -1,29 +1,29 @@
 // This is the same as the `html` renderer, but highlight & katex were removed.
 // We need to duplicate the file because otherwise Webpack would
 // load the modules anyway...
-import {parser as mdastParser} from './zmdast'
+import { parser as mdastParser } from './zmdast'
 
-const rendererForge   = require('../renderers/renderer-forge')
+const rendererForge = require('../renderers/renderer-forge')
 
-const remark2rehype   = require('remark-rehype')
+const remark2rehype = require('remark-rehype')
 const rehypeStringify = require('rehype-stringify')
 
 const defaultMdastConfig = require('../config/mdast')
-const defaultHtmlConfig  = require('../config/html')
+const defaultHtmlConfig = require('../config/html')
 
 const defaultStringifierList = {
-  slug:             require('rehype-slug'),
+  slug: require('rehype-slug'),
   autolinkHeadings: require('rehype-autolink-headings'),
-  footnotesTitles:  require('rehype-footnotes-title'),
-  htmlBlocks:       require('rehype-html-blocks'),
+  footnotesTitles: require('rehype-footnotes-title'),
+  htmlBlocks: require('rehype-html-blocks'),
   postfixFootnotes: require('rehype-postfix-footnote-anchors'),
-  sanitize:         require('rehype-sanitize'),
+  sanitize: require('rehype-sanitize')
 }
 
 const postProcessorList = {
-  wrapCode:         require('../postprocessors/html-wrap-code'),
-  iframeWrappers:   require('../postprocessors/html-iframe-wrappers'),
-  footnotesReorder: require('../postprocessors/html-footnotes-reorder'),
+  wrapCode: require('../postprocessors/html-wrap-code'),
+  iframeWrappers: require('../postprocessors/html-iframe-wrappers'),
+  footnotesReorder: require('../postprocessors/html-footnotes-reorder')
 }
 
 export function parser (tokenizer, config) {
@@ -33,7 +33,7 @@ export function parser (tokenizer, config) {
   rendererForge(
     tokenizer,
     defaultStringifierList,
-    postProcessorList,
+    postProcessorList
   )(config)
 
   return tokenizer
@@ -44,7 +44,7 @@ export function render (
   markdown,
   cb,
   mdConfig = defaultMdastConfig,
-  htmlConfig = defaultHtmlConfig,
+  htmlConfig = defaultHtmlConfig
 ) {
   const processor = mdastParser(mdConfig)
   parser(processor, htmlConfig)

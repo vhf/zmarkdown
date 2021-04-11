@@ -1,8 +1,8 @@
 const db = require('./db')
 
-module.exports = (input = '', {locale} = {}) => {
+module.exports = (input = '', { locale } = {}) => {
   const chars = {
-    'PER MILLE SIGN': '\u2030',
+    'PER MILLE SIGN': '\u2030'
   }
 
   const permillePattern = /%o/gim

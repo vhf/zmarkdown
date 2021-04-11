@@ -3,7 +3,7 @@
 // TODO: make it customizable
 
 /* Dependencies. */
-var text = require('./text');
+const text = require('./text');
 /* Expose. */
 
 

@@ -18,10 +18,10 @@ const defaultMacros = {
     return `${rebberCode}\n\\captionof{listing}{${caption}}\n\n`
   },
   image: (_1, _2, caption, extra) =>
-    `\\begin{center}\n` +
+    '\\begin{center}\n' +
     `\\includegraphics${extra.width ? `[${extra.width}]` : ''}{${extra.url}}\n` +
     `\\captionof{figure}{${caption}}\n` +
-    `\\end{center}\n`,
+    '\\end{center}\n'
 }
 
 const makeExtra = {
@@ -29,10 +29,10 @@ const makeExtra = {
   code: (node) => {
     return {
       language: node.lang || 'text',
-      others: node.meta,
+      others: node.meta
     }
   },
-  image: node => ({url: node.url, width: '\\linewidth'}),
+  image: node => ({ url: node.url, width: '\\linewidth' })
 }
 
 /* Stringify a Figure `node`. */

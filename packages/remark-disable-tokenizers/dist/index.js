@@ -1,54 +1,39 @@
 "use strict";
 
-var clone = require('clone');
+const clone = require('clone');
 
-var noop = function noop() {
-  return false;
+const noop = () => false;
+
+const noopLocator = () => -1;
+
+const throwing = msg => () => {
+  throw new Error(msg);
 };
 
-var noopLocator = function noopLocator() {
-  return -1;
-};
-
-var throwing = function throwing(msg) {
-  return function () {
-    throw new Error(msg);
-  };
-};
-
-function plugin() {
-  var _this = this;
-
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      _ref$block = _ref.block,
-      block = _ref$block === void 0 ? [] : _ref$block,
-      _ref$inline = _ref.inline,
-      inline = _ref$inline === void 0 ? [] : _ref$inline;
-
+function plugin({
+  block = [],
+  inline = []
+} = {}) {
   if (block.length) {
-    block.filter(function (key) {
-      if (Array.isArray(key)) return block.map(function (xs) {
-        return xs[0];
-      }).includes(key[0]);
+    block.filter(key => {
+      if (Array.isArray(key)) return block.map(xs => xs[0]).includes(key[0]);
       return block.includes(key);
-    }).forEach(function (key) {
+    }).forEach(key => {
       if (Array.isArray(key) && key.length === 2) {
-        _this.Parser.prototype.blockTokenizers[key[0]] = throwing(key[1]);
+        this.Parser.prototype.blockTokenizers[key[0]] = throwing(key[1]);
       } else {
-        _this.Parser.prototype.blockTokenizers[key] = noop;
+        this.Parser.prototype.blockTokenizers[key] = noop;
       }
     });
   }
 
   if (inline.length) {
-    inline.filter(function (key) {
-      if (Array.isArray(key)) return inline.map(function (xs) {
-        return xs[0];
-      }).includes(key[0]);
+    inline.filter(key => {
+      if (Array.isArray(key)) return inline.map(xs => xs[0]).includes(key[0]);
       return inline.includes(key);
-    }).forEach(function (key) {
-      var tokenizerName;
-      var replacer;
+    }).forEach(key => {
+      let tokenizerName;
+      let replacer;
 
       if (Array.isArray(key) && key.length === 2) {
         tokenizerName = key[0];
@@ -58,14 +43,14 @@ function plugin() {
         replacer = clone(noop);
       }
 
-      if (_this.Parser.prototype.inlineTokenizers[tokenizerName]) {
-        Object.keys(_this.Parser.prototype.inlineTokenizers[tokenizerName]).forEach(function (prop) {
-          replacer[prop] = _this.Parser.prototype.inlineTokenizers[tokenizerName][prop];
+      if (this.Parser.prototype.inlineTokenizers[tokenizerName]) {
+        Object.keys(this.Parser.prototype.inlineTokenizers[tokenizerName]).forEach(prop => {
+          replacer[prop] = this.Parser.prototype.inlineTokenizers[tokenizerName][prop];
         });
       }
 
-      _this.Parser.prototype.inlineTokenizers[tokenizerName] = replacer;
-      _this.Parser.prototype.inlineTokenizers[tokenizerName].locator = noopLocator;
+      this.Parser.prototype.inlineTokenizers[tokenizerName] = replacer;
+      this.Parser.prototype.inlineTokenizers[tokenizerName].locator = noopLocator;
     });
   }
 }

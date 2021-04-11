@@ -7,79 +7,79 @@ module.exports = isConfig => (req, res) => {
     status: {
       graph: [
         'graph_title Process Status',
-        'graph_vlabel',
+        'graph_vlabel'
       ],
       fields: (name) => [
         `${name}.label ${name}`,
-        `${name}.critical 1`,
-      ],
+        `${name}.critical 1`
+      ]
     },
     memory: {
       stack: true,
       graph: [
         'graph_title RAM Usage',
         'graph_vlabel Bytes',
-        'graph_args --base 1024 --lower-limit 0',
+        'graph_args --base 1024 --lower-limit 0'
       ],
       fields: (name) => [
         `${name}.label ${name}`,
-        `${name}.draw STACK`,
-      ],
+        `${name}.draw STACK`
+      ]
     },
     cpu: {
       graph: [
         'graph_title CPU Usage',
         'graph_vlabel percent',
         'graph_args --base 1000 --lower-limit 0 --rigid',
-        'graph_scale no',
+        'graph_scale no'
       ],
-      fields: (name) => `${name}.label ${name}`,
+      fields: (name) => `${name}.label ${name}`
     },
     event_loop_lag: {
       graph: [
         'graph_title Event Loop Lag',
         'graph_vlabel ms',
-        'graph_args --lower-limit 0',
+        'graph_args --lower-limit 0'
       ],
-      fields: (name) => `${name}.label ${name}`,
+      fields: (name) => `${name}.label ${name}`
     },
     avg_per_process: {
       stack: true,
       graph: [
         'graph_title Requests Per Second Per Process',
         'graph_vlabel requests per second',
-        'graph_args --lower-limit 0',
+        'graph_args --lower-limit 0'
       ],
       fields: (name) => [
         `${name}.label ${name}`,
-        `${name}.draw STACK`,
-      ],
+        `${name}.draw STACK`
+      ]
     },
     avg_per_endpoint: {
       stack: true,
       graph: [
         'graph_title Requests Per Second Per Endpoint',
         'graph_vlabel requests per second',
-        'graph_args --lower-limit 0',
+        'graph_args --lower-limit 0'
       ],
       fields: () => endpoints.map(endpoint =>
-        `${endpoint}.label ${endpoint}\n${endpoint}.draw STACK`),
-    },
+        `${endpoint}.label ${endpoint}\n${endpoint}.draw STACK`)
+    }
   }
 
   const status = {
-    online:  0,
+    online: 0,
     stopped: 1,
-    errored: 2,
+    errored: 2
   }
 
   const stat = req.params.plugin
   const collected = []
 
-  if (!(supportedStats.hasOwnProperty(stat))) {
+  if (!Object.prototype.hasOwnProperty.call(supportedStats, stat)) {
     return res.status(500).send({
       error: `Invalid stat, given : ${stat}, ` +
-        `expected one of ${JSON.stringify(supportedStats, null, 2)}.`,
+        `expected one of ${JSON.stringify(supportedStats, null, 2)}.`
     })
   }
 
@@ -106,11 +106,11 @@ module.exports = isConfig => (req, res) => {
       }
 
       const data = {
-        status:          proc.pm2_env.status in status ? status[proc.pm2_env.status] : 3,
-        memory:          proc.monit.memory,
-        cpu:             proc.monit.cpu,
-        event_loop_lag:  loopLag,
-        avg_per_process: avgPerProcess,
+        status: proc.pm2_env.status in status ? status[proc.pm2_env.status] : 3,
+        memory: proc.monit.memory,
+        cpu: proc.monit.cpu,
+        event_loop_lag: loopLag,
+        avg_per_process: avgPerProcess
       }
 
       if (!maxMem && proc.pm2_env.max_memory_restart) {
@@ -130,18 +130,17 @@ module.exports = isConfig => (req, res) => {
           return sum + (metric ? parseFloat(metric.value) : 0)
         }, 0)
         return acc
-      }, {}),
+      }, {})
     }
 
-    return {procs, endpoints: _endpoints}
+    return { procs, endpoints: _endpoints }
   }
-
 
   // prints a munin readable config
   function printConfig (stats) {
     if (!supportedStats[stat]) {
       return res.status(500).send({
-        error: `"${stat}" not configured`,
+        error: `"${stat}" not configured`
       })
     }
     const procs = stats.procs
@@ -191,12 +190,12 @@ module.exports = isConfig => (req, res) => {
   function run (callback) {
     pm2.connect((err) => {
       if (err) {
-        return res.status(500).send({error: err})
+        return res.status(500).send({ error: err })
       }
 
       pm2.list((err, plist) => {
         if (err) {
-          return res.status(500).send({error: err})
+          return res.status(500).send({ error: err })
         }
 
         plist = plist.filter(process => !process.name.startsWith('pm2'))

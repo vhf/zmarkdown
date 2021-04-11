@@ -4,9 +4,9 @@ const endpoints = ['html', 'epub', 'latex', 'latex-document']
 
 module.exports = endpoints.reduce((acc, endpoint) => {
   const meter = io.meter({
-    name:      `${endpoint} rpm`,
-    samples:   1,
-    timeframe: 60,
+    name: `${endpoint} rpm`,
+    samples: 1,
+    timeframe: 60
   })
 
   acc[endpoint] = () => {

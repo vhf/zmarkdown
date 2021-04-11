@@ -8,7 +8,7 @@ const defaultHeadings = [
   (val) => `\\subsection{${val}}\n`,
   (val) => `\\subsubsection{${val}}\n`,
   (val) => `\\paragraph{${val}}\n`,
-  (val) => `\\subparagaph{${val}}\n`,
+  (val) => `\\subparagaph{${val}}\n`
 ]
 
 /* Stringify a heading `node`.

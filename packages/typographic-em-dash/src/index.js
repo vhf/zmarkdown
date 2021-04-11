@@ -1,6 +1,6 @@
 const db = require('./db')
 
-module.exports = (input = '', {locale} = {}) => {
+module.exports = (input = '', { locale } = {}) => {
   // Replace -- by \u2013 for all locales
   const dashChar = '\u2014'
   const dashPattern = /--/gm

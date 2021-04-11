@@ -6,11 +6,11 @@ const referenceVisitors = require('./referenceVisitors')
 module.exports = preprocess
 
 function preprocess (ctx, tree) {
-  const {definitionVisitor, imageReferenceVisitor} = referenceVisitors()
+  const { definitionVisitor, imageReferenceVisitor } = referenceVisitors()
 
   const defaultVisitors = {
     definition: [definitionVisitor],
-    imageReference: [imageReferenceVisitor],
+    imageReference: [imageReferenceVisitor]
   }
 
   const visitors = xtend(defaultVisitors, ctx.preprocessors || {})

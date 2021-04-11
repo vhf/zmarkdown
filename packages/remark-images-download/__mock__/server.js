@@ -23,7 +23,7 @@ app.get('/stream-bomb', (req, res) => {
 
   // Send garbage until the client closes the connection
   const sendBloat = () => {
-    while (res.write(bloat)) {}
+    while (res.write(bloat));
   }
 
   sendBloat()

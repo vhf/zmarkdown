@@ -16,21 +16,21 @@ function imageToFigure (img, index, parent) {
     if (!img.alt) return
 
     const figureCaptionNode = {
-      type:     'figcaption',
+      type: 'figcaption',
       children: [
         {
-          type:  'text',
-          value: img.alt,
-        },
+          type: 'text',
+          value: img.alt
+        }
       ],
       data: {
-        hName: 'figcaption',
-      },
+        hName: 'figcaption'
+      }
     }
     parent.type = 'figure'
     parent.children = [clone(img), figureCaptionNode]
     parent.data = {
-      hName: 'figure',
+      hName: 'figure'
     }
   }
 }

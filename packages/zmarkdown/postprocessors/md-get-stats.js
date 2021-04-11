@@ -32,6 +32,6 @@ module.exports = () => (tree, vfile) => {
 
   vfile.data.stats = {
     signs: signs,
-    words: words,
+    words: words
   }
 }

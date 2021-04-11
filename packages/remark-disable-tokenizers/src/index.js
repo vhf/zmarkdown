@@ -8,7 +8,7 @@ const throwing = (msg) =>
     throw new Error(msg)
   }
 
-function plugin ({block = [], inline = []} = {}) {
+function plugin ({ block = [], inline = [] } = {}) {
   if (block.length) {
     block
       .filter((key) => {

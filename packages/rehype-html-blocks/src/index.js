@@ -33,7 +33,7 @@ const inline = [
   'input',
   'label',
   'select',
-  'textarea',
+  'textarea'
 ]
 
 function plugin () {
@@ -47,7 +47,7 @@ function transformer (tree) {
 function visitor (node, index, parent) {
   let replacement = {
     type: 'text',
-    value: node.value,
+    value: node.value
   }
 
   if (!inline.includes(parent.tagName)) {
@@ -57,8 +57,8 @@ function visitor (node, index, parent) {
       properties: {},
       children: [{
         type: 'text',
-        value: node.value,
-      }],
+        value: node.value
+      }]
     }
   }
 

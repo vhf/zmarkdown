@@ -8,9 +8,9 @@ const defaultMacro = (ctx, identifier, url, title) => {
       url: url,
       children: [{
         type: 'text',
-        value: url,
-      }],
-    }],
+        value: url
+      }]
+    }]
   }
 
   const link = require('../all')(ctx, node)

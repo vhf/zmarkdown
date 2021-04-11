@@ -3,16 +3,14 @@
 /* Expose. */
 module.exports = blockquote;
 
-var defaultMacro = function defaultMacro(innerText) {
-  return "\\begin{Quotation}\n".concat(innerText, "\n\\end{Quotation}\n\n");
-};
+const defaultMacro = innerText => `\\begin{Quotation}\n${innerText}\n\\end{Quotation}\n\n`;
 /* Stringify a Blockquote `node`. */
 
 
 function blockquote(ctx, node) {
-  var macro = ctx.blockquote || defaultMacro;
+  const macro = ctx.blockquote || defaultMacro;
 
-  var innerText = require('../all')(ctx, node);
+  const innerText = require('../all')(ctx, node);
 
   return macro(innerText.trim());
 }

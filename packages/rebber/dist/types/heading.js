@@ -2,34 +2,20 @@
 
 /* Expose. */
 module.exports = heading;
-var defaultHeadings = [function (val) {
-  return "\\part{".concat(val, "}\n");
-}, function (val) {
-  return "\\chapter{".concat(val, "}\n");
-}, function (val) {
-  return "\\section{".concat(val, "}\n");
-}, function (val) {
-  return "\\subsection{".concat(val, "}\n");
-}, function (val) {
-  return "\\subsubsection{".concat(val, "}\n");
-}, function (val) {
-  return "\\paragraph{".concat(val, "}\n");
-}, function (val) {
-  return "\\subparagaph{".concat(val, "}\n");
-}];
+const defaultHeadings = [val => `\\part{${val}}\n`, val => `\\chapter{${val}}\n`, val => `\\section{${val}}\n`, val => `\\subsection{${val}}\n`, val => `\\subsubsection{${val}}\n`, val => `\\paragraph{${val}}\n`, val => `\\subparagaph{${val}}\n`];
 /* Stringify a heading `node`.
  */
 
 function heading(ctx, node) {
-  var depth = node.depth;
+  const depth = node.depth;
 
-  var content = require('../all')(ctx, node);
+  const content = require('../all')(ctx, node);
 
-  var headings = ctx.headings || defaultHeadings;
-  var fn = headings[node.depth - 1];
+  const headings = ctx.headings || defaultHeadings;
+  const fn = headings[node.depth - 1];
 
   if (typeof fn !== 'function') {
-    throw new Error("Cannot compile heading of depth ".concat(depth, ": not a function"));
+    throw new Error(`Cannot compile heading of depth ${depth}: not a function`);
   }
 
   return fn(content);

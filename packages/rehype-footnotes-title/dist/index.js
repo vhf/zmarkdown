@@ -1,31 +1,24 @@
 "use strict";
 
-var visit = require('unist-util-visit');
+const visit = require('unist-util-visit');
 
-function findLastTag(node) {
-  var tag = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'p';
+function findLastTag(node, tag = 'p') {
   if (!node.children || !node.children.length) return;
-  var links = node.children.filter(function (e) {
-    return e.tagName === tag;
-  });
+  const links = node.children.filter(e => e.tagName === tag);
   if (!links.length) return;
   return links[links.length - 1];
 }
 
 function findLastLink(node, className) {
   if (!node.children || !node.children.length) return;
-  var links = node.children.filter(function (e) {
-    return e.tagName === 'a';
-  });
+  const links = node.children.filter(e => e.tagName === 'a');
   if (!links.length) return;
-  var aTag = links[links.length - 1];
+  const aTag = links[links.length - 1];
   if (!aTag.properties || !aTag.properties.className || !aTag.properties.className.includes(className)) return;
   return aTag;
 }
 
-function plugin() {
-  var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
+function plugin(title = '') {
   function transformer(tree) {
     visit(tree, 'element', visitor);
   }
@@ -33,17 +26,17 @@ function plugin() {
   function visitor(node, index, parent) {
     if (node.tagName === 'li' && node.properties.id) {
       if (!node.children || !node.children.length) return;
-      var aTag = findLastLink(node, 'footnote-backref');
+      let aTag = findLastLink(node, 'footnote-backref');
 
       if (!aTag) {
-        var pTag = findLastTag(node, 'p');
+        const pTag = findLastTag(node, 'p');
         aTag = findLastLink(pTag, 'footnote-backref');
       }
 
       if (!aTag) return;
-      var identifier = node.properties.id.slice(3);
-      var placeholderIndex = title.indexOf('$id');
-      var thisTitle;
+      const identifier = node.properties.id.slice(3);
+      const placeholderIndex = title.indexOf('$id');
+      let thisTitle;
 
       if (placeholderIndex !== -1) {
         thisTitle = title.split('');

@@ -8,13 +8,13 @@ const defaultLatexConfig = clone(require('../config/latex'))
 
 defaultMdastConfig.disableTokenizers = {
   internal: ['textr'],
-  meta:     [],
-  inline:   [],
+  meta: [],
+  inline: []
 }
 defaultMdastConfig.ping.pingUsername = () => false
 
 defaultHtmlConfig.disableTokenizers = {
-  internal: ['highlight'],
+  internal: ['highlight']
 }
 defaultHtmlConfig.postfixFootnotes = '-shortId'
 // Remove custom handlers (only code for now)

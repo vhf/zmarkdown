@@ -1,24 +1,21 @@
 "use strict";
 
-var db = require('./db');
+const db = require('./db');
 
-module.exports = function () {
-  var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      locale = _ref.locale;
-
+module.exports = (input = '', {
+  locale
+} = {}) => {
   if (!Object.keys(db).includes(locale)) return input;
-  var chars = db[locale];
-  var leftMark = chars['LEFT-POINTING ANGLE QUOTATION MARK'];
-  var rightMark = chars['RIGHT-POINTING ANGLE QUOTATION MARK'];
-  var spaceChar = chars['NARROW NO-BREAK SPACE'];
-  var leftAnglePattern = /<</gm;
-  var result = input.replace(leftAnglePattern, leftMark);
-  var leftAngleSpacePattern = new RegExp("(".concat(leftMark, ")(\\s)"), 'gm');
-  result = result.replace(leftAngleSpacePattern, "$1".concat(spaceChar));
-  var rightAnglePattern = />>/gm;
+  const chars = db[locale];
+  const leftMark = chars['LEFT-POINTING ANGLE QUOTATION MARK'];
+  const rightMark = chars['RIGHT-POINTING ANGLE QUOTATION MARK'];
+  const spaceChar = chars['NARROW NO-BREAK SPACE'];
+  const leftAnglePattern = /<</gm;
+  let result = input.replace(leftAnglePattern, leftMark);
+  const leftAngleSpacePattern = new RegExp(`(${leftMark})(\\s)`, 'gm');
+  result = result.replace(leftAngleSpacePattern, `$1${spaceChar}`);
+  const rightAnglePattern = />>/gm;
   result = result.replace(rightAnglePattern, rightMark);
-  var rightAngleSpacePattern = new RegExp("(\\s)(".concat(rightMark, ")"), 'gm');
-  return result.replace(rightAngleSpacePattern, "".concat(spaceChar, "$2"));
+  const rightAngleSpacePattern = new RegExp(`(\\s)(${rightMark})`, 'gm');
+  return result.replace(rightAngleSpacePattern, `${spaceChar}$2`);
 };

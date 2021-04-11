@@ -24,7 +24,7 @@ module.exports = function escapeEscaped (entitiesToKeep = ['&']) {
 
       eat(keep[0])({
         type: 'text',
-        value: keep[0],
+        value: keep[0]
       })
     }
   }

@@ -1,33 +1,33 @@
 "use strict";
 
 /* Dependencies. */
-var all = require('rebber/dist/all');
+const all = require('rebber/dist/all');
 /* Expose. */
 
 
 module.exports = customBlock;
-var defaultMacros = {
-  defaultBlock: function defaultBlock(environmentName, blockTitle, blockContent) {
-    return "\\begin{".concat(environmentName, "}").concat(blockTitle ? "[{{".concat(blockTitle, "}}]") : '') + "\n".concat(blockContent) + "\n\\end{".concat(environmentName, "}\n");
+const defaultMacros = {
+  defaultBlock: (environmentName, blockTitle, blockContent) => {
+    return `\\begin{${environmentName}}${blockTitle ? `[{{${blockTitle}}}]` : ''}` + `\n${blockContent}` + `\n\\end{${environmentName}}\n`;
   }
 };
 
 function customBlock(ctx, node) {
-  var blockMacro = ctx[node.type] || defaultMacros[node.type] || defaultMacros.defaultBlock;
-  var blockTitle = '';
+  const blockMacro = ctx[node.type] || defaultMacros[node.type] || defaultMacros.defaultBlock;
+  let blockTitle = '';
 
   if (node.children && node.children.length) {
     if (node.children[0].type.endsWith('CustomBlockHeading')) {
-      var titleNode = node.children.splice(0, 1)[0];
+      const titleNode = node.children.splice(0, 1)[0];
       blockTitle = all(ctx, titleNode).trim();
     }
   }
 
   node.children[0].type = 'paragraph';
-  var blockContent = all(ctx, node).trim();
-  var options = ctx.customBlocks || {};
-  var environmentName;
-  var type = node.type.replace('CustomBlock', '');
+  const blockContent = all(ctx, node).trim();
+  const options = ctx.customBlocks || {};
+  let environmentName;
+  const type = node.type.replace('CustomBlock', '');
 
   if (options.map && options.map[type]) {
     environmentName = options.map[type];

@@ -8,7 +8,7 @@ module.exports = math
 const defaultMacros = {
   inlineMath: (content) => `$${content}$`,
   inlineMathDouble: (content) => `$$${content}$$`,
-  math: (content) => `\\[ ${content} \\]\n\n`,
+  math: (content) => `\\[ ${content} \\]\n\n`
 }
 
 /* Stringify a Figure `node`. */
