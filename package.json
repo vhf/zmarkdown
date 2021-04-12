@@ -17,9 +17,6 @@
   },
   "dependencies": {
     "mdast-util-split-by-heading": "file:packages/mdast-util-split-by-heading",
-    "microbber": "file:packages/microbber",
-    "micromark": "^2.11.4",
-    "micromark-extension-kbd": "file:packages/micromark-extension-kbd",
     "rebber": "file:packages/rebber",
     "rebber-plugins": "file:packages/rebber-plugins",
     "rehype-footnotes-title": "file:packages/rehype-footnotes-title",
