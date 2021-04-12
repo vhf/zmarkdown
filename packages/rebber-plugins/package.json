@@ -27,6 +27,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "clone": "^2.1.2",
     "has": "^1.0.3",
     "xtend": "^4.0.2"
   },

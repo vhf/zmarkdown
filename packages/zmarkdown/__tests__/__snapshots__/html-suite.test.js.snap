@@ -4,10 +4,10 @@ exports[`Sanitize HTML to prevent XSS advanced XSS 1`] = `"<p>This is [not obvio
 
 exports[`code highlight special cases discards unused attributes 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span><span data-count=\\"2\\"></span><span data-count=\\"3\\"></span><span data-count=\\"4\\"></span><span data-count=\\"5\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 
@@ -17,64 +17,64 @@ exports[`code highlight special cases does not highlight console 1`] = `
 `;
 
 exports[`code highlight special cases highlights latex 1`] = `
-"<div class=\\"hljs-code-div hljs-code-latex\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span><span data-count=\\"2\\"></span><span data-count=\\"3\\"></span><span data-count=\\"4\\"></span></div><pre><code class=\\"hljs language-latex\\"><span class=\\"hljs-tag\\">\\\\<span class=\\"hljs-name\\">usepackage</span><span class=\\"hljs-string\\">{inputenc}</span><span class=\\"hljs-string\\">[utf8]</span></span>
-<span class=\\"hljs-tag\\">\\\\<span class=\\"hljs-name\\">begin</span><span class=\\"hljs-string\\">{document}</span></span>
-<span class=\\"hljs-tag\\">\\\\<span class=\\"hljs-name\\">texttt</span><span class=\\"hljs-string\\">{code}</span></span>
-<span class=\\"hljs-tag\\">\\\\<span class=\\"hljs-name\\">end</span><span class=\\"hljs-string\\">{document}</span></span>
+"<div class=\\"hljs-code-div hljs-code-latex\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span><span data-count=\\"2\\"></span><span data-count=\\"3\\"></span><span data-count=\\"4\\"></span></div><pre><code class=\\"hljs language-latex\\"><span class=\\"hljs-keyword\\">\\\\usepackage</span>{inputenc}[utf8]
+<span class=\\"hljs-keyword\\">\\\\begin</span>{document}
+<span class=\\"hljs-keyword\\">\\\\texttt</span>{code}
+<span class=\\"hljs-keyword\\">\\\\end</span>{document}
 </code></pre></div>"
 `;
 
 exports[`code highlight special cases supports both hl_lines and linenostart 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"3\\"></span><span data-count=\\"4\\" class=\\"hll\\"></span><span data-count=\\"5\\"></span><span data-count=\\"6\\"></span><span data-count=\\"7\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 
 exports[`code highlight special cases supports hl_lines - comma syntax 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span><span data-count=\\"2\\"></span><span data-count=\\"3\\"></span><span data-count=\\"4\\" class=\\"hll\\"></span><span data-count=\\"5\\" class=\\"hll\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 
 exports[`code highlight special cases supports hl_lines - interval syntax 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\" class=\\"hll\\"></span><span data-count=\\"2\\" class=\\"hll\\"></span><span data-count=\\"3\\" class=\\"hll\\"></span><span data-count=\\"4\\"></span><span data-count=\\"5\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 
 exports[`code highlight special cases supports hl_lines - interval syntax reversed 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\" class=\\"hll\\"></span><span data-count=\\"2\\" class=\\"hll\\"></span><span data-count=\\"3\\" class=\\"hll\\"></span><span data-count=\\"4\\"></span><span data-count=\\"5\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 
 exports[`code highlight special cases supports hl_lines - spaced syntax 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span><span data-count=\\"2\\"></span><span data-count=\\"3\\"></span><span data-count=\\"4\\" class=\\"hll\\"></span><span data-count=\\"5\\" class=\\"hll\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 
 exports[`code highlight special cases supports linenostart 1`] = `
 "<div class=\\"hljs-code-div hljs-code-python\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"3\\"></span><span data-count=\\"4\\"></span><span data-count=\\"5\\"></span><span data-count=\\"6\\"></span><span data-count=\\"7\\"></span></div><pre><code class=\\"hljs language-python\\"><span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">main</span>():</span>
-  print(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'It\\\\'s amazing!'</span>)
 
 <span class=\\"hljs-function\\"><span class=\\"hljs-keyword\\">def</span> <span class=\\"hljs-title\\">unused</span>():</span>
-  print(<span class=\\"hljs-string\\">'Please use me!'</span>)
+  <span class=\\"hljs-built_in\\">print</span>(<span class=\\"hljs-string\\">'Please use me!'</span>)
 </code></pre></div>"
 `;
 

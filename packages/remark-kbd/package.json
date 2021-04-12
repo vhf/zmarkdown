@@ -29,6 +29,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "is-whitespace-character": "^1.0.4"
+    "is-whitespace-character": "^2.0.0"
   }
 }

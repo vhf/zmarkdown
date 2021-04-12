@@ -54,12 +54,12 @@ const noDownloads = async asyncFunction => {
 
 describe('mock server tests', () => {
   test('rejects invalid URLs', () => {
-    const file = '![foo](http://%99:%99@example.com)'
+    const file = '![foo](https://example.com:demo)'
 
     const render = renderFactory()
 
     return render(file).then(vfile => {
-      expect(firstMsg(vfile)).toBe('Invalid URL: http://%99:%99@example.com')
+      expect(firstMsg(vfile)).toBe('Invalid URL: https://example.com:demo')
     })
   })
 
@@ -225,9 +225,8 @@ describe('mock server tests', () => {
   })
 
   test('reports protocol not whitelisted', () => {
-    const file = `![](file://localhost:27273/wrong-mime.png)`
-
-    const error = "Protocol 'file:' not allowed."
+    const file = `![](xmpp://localhost:27273/wrong-mime.png)`
+    const error = "Protocol 'xmpp:' not allowed."
 
     const render = renderFactory()
 

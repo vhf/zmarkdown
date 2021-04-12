@@ -30,11 +30,11 @@
   "license": "MIT",
   "dependencies": {
     "clone": "^2.1.2",
-    "file-type": "^14.6.2",
-    "is-svg": "^4.2.1",
+    "file-type": "^16.3.0",
+    "is-svg": "^4.3.1",
     "read-chunk": "^3.2.0",
     "rimraf": "^3.0.2",
-    "shortid": "^2.2.15",
+    "shortid": "^2.2.16",
     "unist-util-visit": "^2.0.3"
   }
 }
