@@ -5,7 +5,7 @@
   "scripts": {
     "pretest": "npm run lint && lerna run pretest --scope zmarkdown",
     "bootstrap": "lerna bootstrap",
-    "test": "jest",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint .",
     "posttest": "lerna run posttest --scope zmarkdown",
     "build": "lerna run build",
@@ -56,6 +56,7 @@
     "@babel/core": "^7.13.15",
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "@babel/preset-env": "^7.13.15",
+    "cross-env": "^7.0.3",
     "del-cli": "^3.0.1",
     "eslint": "^7.24.0",
     "eslint-config-standard": "^16.0.2",
@@ -79,7 +80,8 @@
       "packages/zmarkdown/utils/*.js",
       "packages/zmarkdown/*.js",
       "!**/*.config.js"
-    ]
+    ],
+    "transform": {}
   },
   "standard": {
     "ignore": [

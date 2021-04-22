@@ -1,0 +1,40 @@
+{
+  "name": "micromark-extension-kbd",
+  "version": "0.0.0",
+  "description": "Add Markdown syntax to handle keyboard keys",
+  "type": "module",
+  "keywords": [
+    "micromark",
+    "kbd",
+    "keyboard",
+    "plugin",
+    "extension"
+  ],
+  "author": "Titouan (Stalone) S. <talone@boxph.one>",
+  "homepage": "https://github.com/zestedesavoir/zmarkdown/tree/master#readme",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zestedesavoir/zmarkdown.git#master"
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+  },
+  "bugs": {
+    "url": "https://github.com/zestedesavoir/zmarkdown/issues"
+  },
+  "devDependencies": {
+    "micromark": "^2.11.4"
+  }
+}
