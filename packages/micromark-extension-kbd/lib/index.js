@@ -2,16 +2,19 @@ import chunkedSplice from 'micromark/dist/util/chunked-splice.js'
 import classifyCharacter from 'micromark/dist/util/classify-character.js'
 import shallow from 'micromark/dist/util/shallow.js'
 
-export default function micromarkKbd (options) {
+export default function micromarkKbd (options = {}) {
+  // By default, use the Unicode character U+124 (`|`)
+  const unicodeChar = options.charCode || 124
+
   const call = {
     name: 'kbd',
-    tokenize: tokenizeKbd,
+    tokenize: tokenizeFactory(unicodeChar),
     resolveAll: resolveAllKbd
   }
 
-  // Inject a hook called on Unicode character U+124 (`|`)
+  // Inject a hook called on the given character
   return {
-    text: { 124: call }
+    text: { [unicodeChar]: call }
   }
 }
 
@@ -98,42 +101,46 @@ function resolveAllKbd (events, context) {
   return events
 }
 
-function tokenizeKbd (effects, ok, nok) {
-  const previous = this.previous
+function tokenizeFactory (charCode) {
+  return tokenizeKbd
 
-  return start
+  function tokenizeKbd (effects, ok, nok) {
+    const previous = this.previous
 
-  // Defines a state `kbdStart` that consumes the first pipe character
-  function start (code) {
-    // Discard all characters except for the required one
-    if (code !== 124) return nok(code)
+    return start
 
-    effects.enter('kbdCallDelimiter')
-    effects.consume(code)
+    // Defines a state `kbdStart` that consumes the first pipe character
+    function start (code) {
+      // Discard all characters except for the required one
+      if (code !== charCode) return nok(code)
 
-    return sequence
-  }
+      effects.enter('kbdCallDelimiter')
+      effects.consume(code)
 
-  // Defines a state `kbdSequence` that consumes all other pipe characters
-  function sequence (code) {
-    if (code !== 124) return nok(code)
-    effects.consume(code)
+      return sequence
+    }
 
-    return consumeExtra
-  }
+    // Defines a state `kbdSequence` that consumes all other pipe characters
+    function sequence (code) {
+      if (code !== charCode) return nok(code)
+      effects.consume(code)
 
-  // Defines a state `kbdConsumeExtra` that allow an additionnal pipe
-  // and match opening/closing sequences
-  function consumeExtra (code) {
-    const extraIsPipe = (code === 124)
+      return consumeExtra
+    }
 
-    if (extraIsPipe) effects.consume(code)
+    // Defines a state `kbdConsumeExtra` that allow an additionnal pipe
+    // and match opening/closing sequences
+    function consumeExtra (code) {
+      const extraIsPipe = (code === charCode)
 
-    const endToken = effects.exit('kbdCallDelimiter')
-    endToken._start = extraIsPipe || !classifyCharacter(code)
-    endToken._end = !classifyCharacter(previous) || (previous === 124)
-    endToken._extraIsPipe = extraIsPipe
+      if (extraIsPipe) effects.consume(code)
 
-    return extraIsPipe ? ok : ok(code)
+      const endToken = effects.exit('kbdCallDelimiter')
+      endToken._start = extraIsPipe || !classifyCharacter(code)
+      endToken._end = !classifyCharacter(previous) || (previous === charCode)
+      endToken._extraIsPipe = extraIsPipe
+
+      return extraIsPipe ? ok : ok(code)
+    }
   }
 }

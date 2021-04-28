@@ -1,23 +1,26 @@
 {
   "name": "remark-kbd",
   "version": "1.1.0",
+  "description": "Parses custom Markdown syntax to handle keyboard keys",
+  "type": "module",
   "repository": {
     "url": "https://github.com/zestedesavoir/zmarkdown/tree/master/packages/remark-kbd",
     "type": "git"
   },
-  "author": "Victor Felder <victor@draft.li> (https://draft.li)",
+  "author": "Titouan (Stalone) S. <talone+zmd@boxph.one>",
   "contributors": [
     "Sébastien (AmarOk) Blin <contact@enconn.fr>",
     "François (artragis) Dambrine <perso@francoisdambrine.me>",
-    "Victor Felder <victor@draft.li> (https://draft.li)"
+    "Victor Felder <victor@draft.li> (https://draft.li)",
+    "Titouan (Stalone) S. <talone+zmd@boxph.one>"
   ],
   "scripts": {
     "pretest": "eslint .",
-    "build": "babel --root-mode upward --delete-dir-on-start --env-name production --out-dir dist src",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage"
   },
-  "main": "dist/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "files": [
     "LICENSE-MIT",
     "dist",
@@ -29,6 +32,14 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "is-whitespace-character": "^1.0.4"
+    "micromark-extension-kbd": "file:../micromark-extension-kbd",
+    "is-whitespace-character": "^2.0.0"
+  },
+  "devDependencies": {
+    "remark-parse": "^9.0.0",
+    "remark-stringify": "^9.0.1",
+    "remark-rehype": "^8.1.0",
+    "rehype-stringify": "^8.0.0",
+    "unified": "^9.2.1"
   }
 }

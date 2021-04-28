@@ -22,18 +22,18 @@ exports[`parses kbd parses a big fixture 1`] = `
 exports[`to markdown 1`] = `
 "Blabla ||ok|| kxcvj ||ok foo|| sdff
 
-sdf |||| df
+sdf \\\\|\\\\|\\\\|\\\\| df
 
-sfdgs | | dfg || dgsg | qs
+sfdgs \\\\| \\\\| dfg \\\\|\\\\| dgsg \\\\| qs
 
-With two pipes: \\\\||key|| you'll get ||key||.
+With two pipes: \\\\|\\\\|key\\\\|\\\\| you'll get ||key||.
 
 It can contain inline markdown:
 
--   ||hell[~~o~~](#he)?||
+*   \\\\|\\\\|hell[~~o~~](#he)?\\\\|\\\\|
 
 It cannot contain blocks:
 
--   ||hello: \\\\[[secret]]?||
+*   \\\\|\\\\|hello: \\\\[\\\\[secret]]?\\\\|\\\\|
 "
 `;

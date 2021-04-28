@@ -3,11 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "pretest": "npm run lint && lerna run pretest --scope zmarkdown",
     "bootstrap": "lerna bootstrap",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest packages/remark-kbd packages/micromark-extension-kbd",
     "lint": "eslint .",
-    "posttest": "lerna run posttest --scope zmarkdown",
     "build": "lerna run build",
     "build-demo": "lerna run release --scope zmarkdown && del-cli ./packages/zmarkdown/public/js && cp -r ./packages/zmarkdown/client/dist ./packages/zmarkdown/public/js"
   },
