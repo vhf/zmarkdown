@@ -134,7 +134,7 @@ function plugin ({
 
         const fileSize = getSize(headers)
 
-        if (statusCode !== 200) {
+        if (statusCode !== 200 && statusCode !== 301) {
           error = new Error(`Received HTTP${statusCode} for: ${url}`)
           error.replaceWithDefault = defaultOn && defaultOn.statusCode
         } else if (!isImage(headers)) {
