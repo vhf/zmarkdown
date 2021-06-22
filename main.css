@@ -1,0 +1,116 @@
+/* Global style */
+html, body {
+  height: 100%;
+}
+
+body {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Editor style */
+
+.editor {
+  font-family: monospace;
+  font-size: 14px;
+  border: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #333;
+  height: 100%;
+  margin: 0;
+  min-width: 0;
+  outline-width: 0;
+  overflow-y: auto;
+  padding: 30px;
+  resize: none;
+  width: 100%;
+}
+
+#left-bottom, #center, #center-bottom, #center-top, #right {
+  overflow-y: auto;
+}
+
+#left-bottom {
+  background-color: #084561;
+}
+
+.result {
+  padding: 30px;
+  position: relative;
+}
+
+.bottom-style {
+  height: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+.latex-result {
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 30px;
+}
+
+/* Resizer style */
+
+.gutter {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  box-shadow: inset 0 1px 2px #CCC;
+  background-color: #EEE;
+}
+
+.gutter:hover {
+  background-color: #ddd;
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+  cursor: row-resize;
+}
+
+.split.split-horizontal, .gutter.gutter-horizontal {
+  height: 100%;
+  float: left;
+}
+
+.gutter.gutter-vertical {
+  background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=')
+}
+
+.gutter.gutter-horizontal {
+  background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==')
+}
+
+.zmarkdown > p > .inlineMathDouble {
+  display: block;
+  text-align: center;
+}
+
+.zmarkdown > .align-right {
+  text-align: right;
+}
+
+.zmarkdown > .align-center {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}

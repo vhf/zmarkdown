@@ -1,0 +1,43 @@
+name: Prepare publication
+
+on:
+  push:
+    branches: [master]
+
+env:
+  NODE_VERSION: "14"
+
+jobs:
+
+  deploy-demo:
+    name: Deploy the live demo
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install local dependencies
+        run: npm ci
+
+      - name: Build the demo
+        run: npm run build-demo
+
+      - name: Creates a commit
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add -f packages/zmarkdown/public/js/
+          git commit -m "Deploy zestedesavoir/zmarkdown to gh-pages"
+      
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: ./packages/zmarkdown/public
+          branch: gh-pages
+          force: true
