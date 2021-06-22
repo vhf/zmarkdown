@@ -2,13 +2,13 @@
 
 exports[`html can take custom config 1`] = `
 "<h1 id=\\"some-md\\">some md<a aria-hidden=\\"true\\" tabindex=\\"-1\\" href=\\"#some-md\\"><span class=\\"icon icon-link\\"></span></a></h1>
-<div class=\\"hljs-code-div\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span></div><pre><code class=\\"hljs language-latex\\">Some LaTeX
+<div class=\\"hljs-code-div\\"><pre><code class=\\"hljs language-latex\\">Some LaTeX
 </code></pre></div>"
 `;
 
 exports[`html uses default config 1`] = `
 "<h1 id=\\"some-md\\">some md<a aria-hidden=\\"true\\" tabindex=\\"-1\\" href=\\"#some-md\\"><span class=\\"icon icon-link\\"></span></a></h1>
-<div class=\\"hljs-code-div hljs-code-latex\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span></div><pre><code class=\\"hljs language-latex\\">Some LaTeX
+<div class=\\"hljs-code-div hljs-code-latex\\"><pre><code class=\\"hljs language-latex\\">Some LaTeX
 </code></pre></div>"
 `;
 

@@ -81,16 +81,23 @@ function code (_, node) {
 
   const hlLines = rangeHandler(attrs.hlLines)
 
-  const lineNumberElems = value
+  const linesSplitted = value
     .split('\n')
     .slice(0, -1)
+
+  const lineNumberElems = linesSplitted
     .map((_, i) => {
       const realLn = i + attrs.linenostart
       return lineNumberElemConstructor(realLn, hlLines.includes(realLn))
     })
 
-  return parentDivConstructor([
-    lineNumberDivConstructor(lineNumberElems),
-    codeNodeConstructor(lang, value),
-  ])
+  const parentDivChildren = []
+
+  if (linesSplitted.length > 1) {
+    parentDivChildren.push(lineNumberDivConstructor(lineNumberElems))
+  }
+
+  parentDivChildren.push(codeNodeConstructor(lang, value))
+
+  return parentDivConstructor(parentDivChildren)
 }

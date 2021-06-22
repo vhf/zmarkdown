@@ -17,6 +17,7 @@ function tableRow (ctx, node, index) {
   const macro = ctx.tableRow || defaultMacro
   const firstLineRowFont = ctx.firstLineRowFont || defaultFirstLineRowFont
   const otherLineRowFont = ctx.otherLineRowFont || defaultOtherLineRowFont
+
   if (index === 0) {
     return `${firstLineRowFont}\n${macro(ctx, node)}`
   } else if (index === 1) {
@@ -24,5 +25,4 @@ function tableRow (ctx, node, index) {
   } else {
     return macro(ctx, node)
   }
-
 }

@@ -478,13 +478,13 @@ a paragraph\\\\footnote[l121c12o2832]{\\\\footnotemark{footnote:l121c12o2832} fo
 `;
 
 exports[`gridTable 1`] = `
-"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 Sub & Headings & ABBR \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{ABBR   spanning}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{ABBR   spanning}} \\\\\\\\ \\\\cline{2-3}
  & normal & cell \\\\\\\\ \\\\hline
-multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
+multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 \\\\captionof{table}{The new table ABBR [\\\\textasciicircum{}foot] with ||CTRL|| + ||S||}
 
@@ -498,7 +498,7 @@ multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multi
 
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 title & image \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
@@ -506,7 +506,7 @@ space & \\\\inlineImage{https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg} \\
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 title & code \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
@@ -515,90 +515,90 @@ block & \\\\hyperref[appendix-1]{Code appendice 1} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
  & F & G \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C & D \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{E}} &  \\\\\\\\ \\\\cline{2-4}
- & F & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} &  \\\\\\\\ \\\\cline{2-4}
+ & F & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
 a & b & \\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{c   d \\\\endgraf \\\\endgraf g}} \\\\\\\\ \\\\cline{1-2}
 e & f &  &  \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{Table Headings}} & Here \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{Table Headings}} & Here \\\\\\\\ \\\\hline
 Sub & Headings & Too \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{column[\\\\textasciicircum{}foot]}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{column[\\\\textasciicircum{}foot]}} \\\\\\\\ \\\\cline{2-3}
  & normal & cell \\\\\\\\ \\\\hline
-multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
+multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
  & F & G \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multirow{3}{*}{\\\\parbox{\\\\linewidth}{A}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{B}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{3}{*}{\\\\parbox{\\\\linewidth}{A}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{B}} \\\\\\\\ \\\\cline{2-3}
 \\\\rowfont[l]{}
  & C & D \\\\\\\\ \\\\cline{2-3}
- & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\hline
+ & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C & D \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{E}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{F}} \\\\\\\\ \\\\hline
-\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{F}} \\\\\\\\ \\\\hline
+\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4}|}{\\\\parbox{\\\\linewidth}{A}} \\\\\\\\ \\\\hline
+\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{A}} \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{B}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{C}} \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{B}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{C}} \\\\\\\\ \\\\hline
 D & E & F & G \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-H & \\\\multicolumn{16}{|m{\\\\dimexpr(\\\\linewidth) * 16 / 18}|}{\\\\parbox{\\\\linewidth}{}} & He \\\\\\\\ \\\\hline
+H & \\\\multicolumn{16}{|m{\\\\dimexpr(\\\\linewidth) * 16 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} & He \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
 Li & Be & \\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{}} & B & C & N & O & F & Ne \\\\\\\\ \\\\cline{1-2} \\\\cline{13-18}
 Na & Mg &  &  &  &  &  &  &  &  &  &  & Al & Si & P & S & Cl & Ar \\\\\\\\ \\\\hline
 K & Ca & Sc & Ti & V & Cr & Mn & Fe & Co & Ni & Cu & Zn & Ga & Ge & As & Se & Br & Kr \\\\\\\\ \\\\hline
 Rb & Sr & Y & Zr & Nb & Mo & Tc & Ru & Rh & Pd & Ag & Cd & In & Sn & Sb & Te & I & Xe \\\\\\\\ \\\\hline
 Cs & Ba & LAN & Hf & Ta & W & Re & Os & Ir & Pt & Au & Hg & Tl & Pb & Bi & Po & At & Rn \\\\\\\\ \\\\hline
-Fr & Ra & ACT & \\\\multicolumn{15}{|m{\\\\dimexpr(\\\\linewidth) * 15 / 18}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
-\\\\multicolumn{18}{|m{\\\\dimexpr(\\\\linewidth) * 18 / 18}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
-\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18}|}{\\\\parbox{\\\\linewidth}{Lanthanide}} & La & Ce & Pr & Nd & Pm & Sm & Eu & Gd & Tb & Dy & Ho & Er & Tm & Yb & Lu \\\\\\\\ \\\\hline
-\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18}|}{\\\\parbox{\\\\linewidth}{Actinide}} & Ac & Th & Pa & U & Np & Pu & Am & Cm & Bk & Cf & Es & Fm & Md & No & Lw \\\\\\\\ \\\\hline
+Fr & Ra & ACT & \\\\multicolumn{15}{|m{\\\\dimexpr(\\\\linewidth) * 15 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
+\\\\multicolumn{18}{|m{\\\\dimexpr(\\\\linewidth) * 18 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
+\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{Lanthanide}} & La & Ce & Pr & Nd & Pm & Sm & Eu & Gd & Tb & Dy & Ho & Er & Tm & Yb & Lu \\\\\\\\ \\\\hline
+\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{Actinide}} & Ac & Th & Pa & U & Np & Pu & Am & Cm & Bk & Cf & Es & Fm & Md & No & Lw \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A \\\\\\\\ \\\\hline
 \\\\end{longtabu}
@@ -608,7 +608,7 @@ Text at the end
 
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A \\\\\\\\ \\\\hline
 \\\\end{longtabu}
@@ -618,7 +618,7 @@ Text at the
 
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 a & \\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{}} &  \\\\\\\\ \\\\cline{1-1}
 \\\\rowfont[l]{}
@@ -628,11 +628,11 @@ b &  &  & c \\\\\\\\ \\\\hline
 
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 5}|m{\\\\dimexpr(\\\\linewidth) / 5}|m{\\\\dimexpr(\\\\linewidth) / 5}|m{\\\\dimexpr(\\\\linewidth) / 5}|m{\\\\dimexpr(\\\\linewidth) / 5}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 5 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 5 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 5 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 5 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 5 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5}|}{\\\\parbox{\\\\linewidth}{span}} & header & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5}|}{\\\\parbox{\\\\linewidth}{span}} \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{span}} & header & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{span}} \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-elem & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5}|}{\\\\parbox{\\\\linewidth}{span middle}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
+elem & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{span middle}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 5 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
@@ -993,13 +993,13 @@ exports[`mix-3 1`] = `
 `;
 
 exports[`mix-4 1`] = `
-"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 Sub & Headings & \\\\abbr{ABBR}{abbreviation} \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{column spanning}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{column spanning}} \\\\\\\\ \\\\cline{2-3}
  & normal & cell \\\\\\\\ \\\\hline
-multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
+multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 \\\\captionof{table}{The new table \\\\abbr{ABBR}{abbreviation} \\\\textsuperscript{\\\\footnotemark{footnote:foot}} with \\\\keys{CTRL} + \\\\keys{S}}
 
@@ -1007,7 +1007,7 @@ multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multi
 
 \\\\footnotetext[foot]{\\\\footnotemark{footnote:foot} a foot}
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 title & image \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
@@ -1015,7 +1015,7 @@ space & \\\\inlineImage{https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg} \\
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 title & code \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
@@ -1024,90 +1024,90 @@ block & \\\\hyperref[appendix-1]{Code appendice 1} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
  & F & G \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C & D \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{E}} &  \\\\\\\\ \\\\cline{2-4}
- & F & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} &  \\\\\\\\ \\\\cline{2-4}
+ & F & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
 a & b & \\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{c   d \\\\endgraf \\\\endgraf g}} \\\\\\\\ \\\\cline{1-2}
 e & f &  &  \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{Table Headings}} & Here \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{Table Headings}} & Here \\\\\\\\ \\\\hline
 Sub & Headings & Too \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{column spanning}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{column spanning}} \\\\\\\\ \\\\cline{2-3}
  & normal & cell \\\\\\\\ \\\\hline
-multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
+multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{D}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\cline{2-3}
  & F & G \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multirow{3}{*}{\\\\parbox{\\\\linewidth}{A}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{B}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{3}{*}{\\\\parbox{\\\\linewidth}{A}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{B}} \\\\\\\\ \\\\cline{2-3}
 \\\\rowfont[l]{}
  & C & D \\\\\\\\ \\\\cline{2-3}
- & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\hline
+ & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A & B & C & D \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{E}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{F}} \\\\\\\\ \\\\hline
-\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{E}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{F}} \\\\\\\\ \\\\hline
+\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{G}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4}|}{\\\\parbox{\\\\linewidth}{A}} \\\\\\\\ \\\\hline
+\\\\multicolumn{4}{|m{\\\\dimexpr(\\\\linewidth) * 4 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{A}} \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{B}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4}|}{\\\\parbox{\\\\linewidth}{C}} \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{B}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 4 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{C}} \\\\\\\\ \\\\hline
 D & E & F & G \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|m{\\\\dimexpr(\\\\linewidth) / 18}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 18 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
-H & \\\\multicolumn{16}{|m{\\\\dimexpr(\\\\linewidth) * 16 / 18}|}{\\\\parbox{\\\\linewidth}{}} & He \\\\\\\\ \\\\hline
+H & \\\\multicolumn{16}{|m{\\\\dimexpr(\\\\linewidth) * 16 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} & He \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
 Li & Be & \\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{}} & B & C & N & O & F & Ne \\\\\\\\ \\\\cline{1-2} \\\\cline{13-18}
 Na & Mg &  &  &  &  &  &  &  &  &  &  & Al & Si & P & S & Cl & Ar \\\\\\\\ \\\\hline
 K & Ca & Sc & Ti & V & Cr & Mn & Fe & Co & Ni & Cu & Zn & Ga & Ge & As & Se & Br & Kr \\\\\\\\ \\\\hline
 Rb & Sr & Y & Zr & Nb & Mo & Tc & Ru & Rh & Pd & Ag & Cd & In & Sn & Sb & Te & I & Xe \\\\\\\\ \\\\hline
 Cs & Ba & LAN & Hf & Ta & W & Re & Os & Ir & Pt & Au & Hg & Tl & Pb & Bi & Po & At & Rn \\\\\\\\ \\\\hline
-Fr & Ra & ACT & \\\\multicolumn{15}{|m{\\\\dimexpr(\\\\linewidth) * 15 / 18}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
-\\\\multicolumn{18}{|m{\\\\dimexpr(\\\\linewidth) * 18 / 18}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
-\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18}|}{\\\\parbox{\\\\linewidth}{Lanthanide}} & La & Ce & Pr & Nd & Pm & Sm & Eu & Gd & Tb & Dy & Ho & Er & Tm & Yb & Lu \\\\\\\\ \\\\hline
-\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18}|}{\\\\parbox{\\\\linewidth}{Actinide}} & Ac & Th & Pa & U & Np & Pu & Am & Cm & Bk & Cf & Es & Fm & Md & No & Lw \\\\\\\\ \\\\hline
+Fr & Ra & ACT & \\\\multicolumn{15}{|m{\\\\dimexpr(\\\\linewidth) * 15 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
+\\\\multicolumn{18}{|m{\\\\dimexpr(\\\\linewidth) * 18 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{}} \\\\\\\\ \\\\hline
+\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{Lanthanide}} & La & Ce & Pr & Nd & Pm & Sm & Eu & Gd & Tb & Dy & Ho & Er & Tm & Yb & Lu \\\\\\\\ \\\\hline
+\\\\multicolumn{3}{|m{\\\\dimexpr(\\\\linewidth) * 3 / 18 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{Actinide}} & Ac & Th & Pa & U & Np & Pu & Am & Cm & Bk & Cf & Es & Fm & Md & No & Lw \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A \\\\\\\\ \\\\hline
 \\\\end{longtabu}
@@ -1117,7 +1117,7 @@ Text at the end
 
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 1 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 A \\\\\\\\ \\\\hline
 \\\\end{longtabu}
@@ -1127,7 +1127,7 @@ Text at the
 
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|m{\\\\dimexpr(\\\\linewidth) / 4}|} \\\\hline
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 4 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 a & \\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{}} &  \\\\\\\\ \\\\cline{1-1}
 \\\\rowfont[l]{}
@@ -1168,11 +1168,11 @@ no caption"
 `;
 
 exports[`mix-7 1`] = `
-"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
+"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
 \\\\rowfont[c]{\\\\bfseries}
 cell & \\\\texttt{code with line break} \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 2}|}{\\\\parbox{\\\\linewidth}{\\\\hyperref[appendix-1]{Code appendice 1}}} \\\\\\\\ \\\\hline
+\\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 2 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{\\\\hyperref[appendix-1]{Code appendice 1}}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 

@@ -99,7 +99,7 @@ var GridTableStringifier = /*#__PURE__*/function () {
         this.colspan = node.data.hProperties.colspan > 1 ? node.data.hProperties.colspan : 1;
       } else if (node.data && node.data.hProperties.colspan > 1) {
         var colspan = node.data.hProperties.colspan;
-        var colDim = "m{\\dimexpr(\\linewidth) * ".concat(colspan, " / \\number-of-column}");
+        var colDim = "m{\\dimexpr(\\linewidth) * ".concat(colspan, " / \\number-of-column - 2 * \\tabcolsep}");
         baseText = "\\multicolumn{".concat(colspan, "}{|").concat(colDim, "|}{\\parbox{\\linewidth}{").concat(baseText, "}}");
       }
 
@@ -182,8 +182,7 @@ var GridTableStringifier = /*#__PURE__*/function () {
   }, {
     key: "gridTableHeaderParse",
     value: function gridTableHeaderParse() {
-      var headers = "|m{\\dimexpr(\\linewidth) / ".concat(this.nbOfColumns, "}").repeat(this.nbOfColumns);
-      return "".concat(headers, "|");
+      return "|m{\\dimexpr(\\linewidth) / ".concat(this.nbOfColumns, " - 2 * \\tabcolsep}").repeat(this.nbOfColumns).concat('|');
     }
   }, {
     key: "previousRowWasMulti",

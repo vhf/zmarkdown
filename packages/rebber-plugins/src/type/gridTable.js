@@ -67,7 +67,7 @@ class GridTableStringifier {
       this.colspan = node.data.hProperties.colspan > 1 ? node.data.hProperties.colspan : 1
     } else if (node.data && node.data.hProperties.colspan > 1) {
       const colspan = node.data.hProperties.colspan
-      const colDim = `m{\\dimexpr(\\linewidth) * ${colspan} / \\number-of-column}`
+      const colDim = `m{\\dimexpr(\\linewidth) * ${colspan} / \\number-of-column - 2 * \\tabcolsep}`
       baseText = `\\multicolumn{${colspan}}{|${colDim}|}{\\parbox{\\linewidth}{${baseText}}}`
     }
 
@@ -141,8 +141,9 @@ class GridTableStringifier {
   }
 
   gridTableHeaderParse () {
-    const headers = `|m{\\dimexpr(\\linewidth) / ${this.nbOfColumns}}`.repeat(this.nbOfColumns)
-    return `${headers}|`
+    return `|m{\\dimexpr(\\linewidth) / ${this.nbOfColumns} - 2 * \\tabcolsep}`
+      .repeat(this.nbOfColumns)
+      .concat('|')
   }
 
   previousRowWasMulti () {

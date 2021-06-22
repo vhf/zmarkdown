@@ -557,13 +557,13 @@ exports[`mix-3 1`] = `
 `;
 
 exports[`mix-4 1`] = `
-"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|m{\\\\dimexpr(\\\\linewidth) / 3}|} \\\\hline
-\\\\rowfont[c]{\\\\bfseries}
+"\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 3 - 2 * \\\\tabcolsep}|} \\\\hline
+\\\\rowfont[l]{\\\\bfseries}
 Sub & Headings & \\\\abbr{ABBR}{abbreviation} \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
-\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{column spanning}} \\\\\\\\ \\\\cline{2-3}
+\\\\multirow{2}{*}{\\\\parbox{\\\\linewidth}{cell \\\\endgraf spans \\\\endgraf rows}} & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{column spanning}} \\\\\\\\ \\\\cline{2-3}
  & normal & cell \\\\\\\\ \\\\hline
-multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
+multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multicolumn{2}{|m{\\\\dimexpr(\\\\linewidth) * 2 / 3 - 2 * \\\\tabcolsep}|}{\\\\parbox{\\\\linewidth}{cells can be \\\\endgraf \\\\textit{formatted} \\\\endgraf \\\\textbf{paragraphs}}} \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 \\\\captionof{table}{The new table \\\\abbr{ABBR}{abbreviation} \\\\textsuperscript{\\\\footnotemark{footnote:1}} with \\\\keys{CTRL} + \\\\keys{S}}
 
@@ -571,16 +571,16 @@ multi \\\\endgraf line \\\\endgraf \\\\endgraf cells \\\\endgraf too & \\\\multi
 
 \\\\footnotetext[1]{\\\\footnotemark{footnote:1} a foot}
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
-\\\\rowfont[c]{\\\\bfseries}
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
+\\\\rowfont[l]{\\\\bfseries}
 title & image \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
 space & \\\\image{https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg}[space] \\\\\\\\ \\\\hline
 \\\\end{longtabu}
 
 
-\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2}|m{\\\\dimexpr(\\\\linewidth) / 2}|} \\\\hline
-\\\\rowfont[c]{\\\\bfseries}
+\\\\begin{longtabu}{|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|m{\\\\dimexpr(\\\\linewidth) / 2 - 2 * \\\\tabcolsep}|} \\\\hline
+\\\\rowfont[l]{\\\\bfseries}
 title & code \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
 inline & \\\\CodeInline{inline} br \\\\endgraf \\\\CodeInline{inline} \\\\\\\\ \\\\hline
@@ -734,7 +734,7 @@ a
 
 exports[`table 1`] = `
 "\\\\begin{longtabu} spread 0pt {|X[-1]|X[-1]|} \\\\hline
-\\\\rowfont[c]{\\\\bfseries}
+\\\\rowfont[l]{\\\\bfseries}
 1 & 2 \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
 1 & 2 \\\\\\\\ \\\\hline
@@ -744,7 +744,7 @@ exports[`table 1`] = `
 
 
 \\\\begin{longtabu} spread 0pt {|X[-1]|X[-1]|X[-1]|} \\\\hline
-\\\\rowfont[c]{\\\\bfseries}
+\\\\rowfont[l]{\\\\bfseries}
 1 & 2 & 3 \\\\\\\\ \\\\hline
 \\\\rowfont[l]{}
 1 & 2 \\\\\\\\ \\\\hline

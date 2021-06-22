@@ -11,8 +11,13 @@ exports[`code highlight special cases discards unused attributes 1`] = `
 </code></pre></div>"
 `;
 
+exports[`code highlight special cases does not count one-liners 1`] = `
+"<div class=\\"hljs-code-div hljs-code-js\\"><pre><code class=\\"hljs language-js\\"><span class=\\"hljs-keyword\\">const</span> a = <span class=\\"hljs-number\\">1</span>
+</code></pre></div>"
+`;
+
 exports[`code highlight special cases does not highlight console 1`] = `
-"<div class=\\"hljs-code-div hljs-code-console\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span></div><pre><code class=\\"language-console\\">echo \\"Hello world\\"
+"<div class=\\"hljs-code-div hljs-code-console\\"><pre><code class=\\"language-console\\">echo \\"Hello world\\"
 </code></pre></div>"
 `;
 

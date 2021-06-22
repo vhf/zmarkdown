@@ -249,6 +249,16 @@ describe('code highlight special cases', () => {
     defaultHtmlConfig.postProcessors.codeHighlight = true
   })
 
+  it('does not count one-liners', () => {
+    const input = dedent`
+      \`\`\`js
+      const a = 1
+      \`\`\`
+    `
+
+    expect(renderString(input)).resolves.toMatchSnapshot()
+  })
+
   it('does not highlight console', () => {
     const input = dedent `
       \`\`\`console

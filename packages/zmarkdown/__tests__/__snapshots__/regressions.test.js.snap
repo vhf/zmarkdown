@@ -2,9 +2,9 @@
 
 exports[`Regression tests HTML endpoint #188 It does not crash on unsupported languages fenced code blocks 1`] = `
 "<h3 id=\\"foo\\">foo<a aria-hidden=\\"true\\" tabindex=\\"-1\\" href=\\"#foo\\"><span class=\\"icon icon-link\\"></span></a></h3>
-<div class=\\"hljs-code-div hljs-code-foobar\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span></div><pre><code class=\\"hljs language-foobar\\">console.error(\\"foo\\", true)
+<div class=\\"hljs-code-div hljs-code-foobar\\"><pre><code class=\\"hljs language-foobar\\">console.error(\\"foo\\", true)
 </code></pre></div>
-<div class=\\"hljs-code-div hljs-code-js\\"><div class=\\"hljs-line-numbers\\"><span data-count=\\"1\\"></span></div><pre><code class=\\"hljs language-js\\"><span class=\\"hljs-built_in\\">console</span>.error(<span class=\\"hljs-string\\">\\"foo\\"</span>, <span class=\\"hljs-literal\\">true</span>)
+<div class=\\"hljs-code-div hljs-code-js\\"><pre><code class=\\"hljs language-js\\"><span class=\\"hljs-built_in\\">console</span>.error(<span class=\\"hljs-string\\">\\"foo\\"</span>, <span class=\\"hljs-literal\\">true</span>)
 </code></pre></div>"
 `;
 
